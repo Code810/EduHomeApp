@@ -1,0 +1,31 @@
+﻿@model ICollection<Course>
+
+@{
+    if (Model.Count==0)
+    {
+        <div class="m-auto"><h1 class="m-auto"> search results not found</h1></div>
+    }
+    else
+    {
+        foreach (var course in Model)
+        {
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="single-course mb-70">
+                    <div class="course-img">
+                        <a href="course-details.html">
+                            <img src="~/img/course/@course.ImageUrl" alt="course">
+                            <div class="course-hover">
+                                <i class="fa fa-link"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="course-content">
+                        <h3><a href="course-details.html">@course.Category.Name</a></h3>
+                        <p>@(course.Description.Length > 100 ? course.Description.Substring(0, 100) : course.Description)</p>
+                        <a class="default-btn" href="course-details.html">read more</a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+}
