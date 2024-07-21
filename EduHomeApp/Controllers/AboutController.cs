@@ -29,15 +29,15 @@ namespace EduHomeApp.Controllers
               Pinteres = teacher.TeacherContact.Pinteres,
               Twitter = teacher.TeacherContact.Twitter,
           }).Take(4).ToList();
-            var AboutVm = new AboutVm()
+            var aboutVm = new AboutVm()
             {
                 AboutArea = _context.AboutArea.AsNoTracking().SingleOrDefault(),
                 TeacherAbouutVm = teachers,
-                settings = _context.Settings.ToDictionary(key => key.Key, value => value.Value),
-                noticeBoards = _context.NoticeBoards.AsNoTracking().ToList(),
+                Settings = _context.Settings.ToDictionary(key => key.Key, value => value.Value),
+                NoticeBoards = _context.NoticeBoards.AsNoTracking().ToList(),
 
             };
-            return View(AboutVm);
+            return View(aboutVm);
         }
     }
 }

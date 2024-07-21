@@ -1,7 +1,7 @@
 $(function () {
     //Subscribe js start
     $("#mc-embedded-subscribe").on("click", function (event) {
-        event.preventDefault(); 
+        event.preventDefault();
 
         const email = $("#mce-EMAIL").val(); 
 
@@ -29,20 +29,25 @@ $(function () {
 
    // course search js start
     $(".search-btn").on("click", function (e) {
-        e.preventDefault();
-        const textinp = $(this).prev().val().trim()
-        $.ajax({
-            url: "/Courses/SearchCourse",
-            method: "GET",
-            data: { text: textinp },
-            success: function (datas) {
+
+        const textinp = $(this).prev().val().trim();
+
+        if (textinp !== "") {
+            e.preventDefault();
+
+            $.ajax({
+                url: "/Courses/SearchCourse",
+                method: "GET",
+                data: { text: textinp },
+                success: function (datas) {
                     $(".coursespage div").remove();
-                $(".coursespage").append(datas)
-            },
-            error: function (xhr) {
-                
-            }
-        });
+                    $(".coursespage").append(datas)
+                },
+                error: function (xhr) {
+
+                }
+            });
+        }
     });
 
     //course search js end

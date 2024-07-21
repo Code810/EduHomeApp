@@ -1,9 +1,10 @@
 ﻿using EduHomeApp.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace EduHomeApp.Data
 {
-    public class EduHomeDbContext : DbContext
+    public class EduHomeDbContext : IdentityDbContext<AppUser>
     {
         public EduHomeDbContext(DbContextOptions options) : base(options)
         {
@@ -25,8 +26,6 @@ namespace EduHomeApp.Data
         public DbSet<Subscribe> Subscribes { get; set; }
         public DbSet<AboutArea> AboutArea { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
-        public DbSet<Skills> Skills { get; set; }
-        public DbSet<TeacherSkills> TeacherSkills { get; set; }
         public DbSet<TeacherContact> TeacherContacts { get; set; }
 
 

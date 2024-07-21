@@ -16,8 +16,15 @@ namespace EduHomeApp.Models
         public string Hobbies { get; set; }
         public string Faculty { get; set; }
         public string ImageUrl { get; set; }
-        public string UserId { get; set; }
-        public IEnumerable<TeacherSkills> TeacherSkills { get; set; }
+        public string AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
+        public int Language { get; set; }
+        public int TeamLeader { get; set; }
+        public int Development { get; set; }
+        public int Design { get; set; }
+        public int Innovation { get; set; }
+        public int Communication { get; set; }
         public TeacherContact TeacherContact { get; set; }
+        public List<Course> Courses { get; set; }
     }
 }

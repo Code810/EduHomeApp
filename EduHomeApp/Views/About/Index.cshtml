@@ -24,7 +24,7 @@
                 <div class="about-content">
                     <h2>@Html.Raw(Model.AboutArea.Title)</h2>
                     <p>@Model.AboutArea.Description</p>
-                    <a class="default-btn" href="#">view courses</a>
+                    <a class="default-btn" asp-controller="courses" asp-action="index">view courses</a>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
@@ -53,10 +53,10 @@
                 <div class="col-md-3 col-sm-4 col-xs-12">
                     <div class="single-teacher">
                         <div class="single-teacher-img">
-                            <a href="teacher-details.html"><img src="img/teacher/@teacher.ImageUrl" alt="teacher"></a>
+                            <a asp-controller="teacher" asp-action="detail" asp-route-id="@teacher.Id"><img src="img/teacher/@teacher.ImageUrl" alt="teacher"></a>
                         </div>
                         <div class="single-teacher-content text-center">
-                            <h2><a href="teacher-details.html">@teacher.FullName</a></h2>
+                            <h2><a asp-controller="teacher" asp-action="detail" asp-route-id="@teacher.Id">@teacher.FullName</a></h2>
                             <h4>@teacher.Position</h4>
                             <ul>
                                 <li><a href="@teacher.Facebook"><i class="zmdi zmdi-facebook"></i></a></li>
@@ -105,7 +105,7 @@
                     <h3>TAKE A VIDEO TOUR</h3>
                     <div class="notice-video">
                         <div class="video-icon video-hover">
-                            <a class="video-popup" href="@Model.settings["aboutvideo"]">
+                            <a class="video-popup" href="@Model.Settings["aboutvideo"]">
                                 <i class="zmdi zmdi-play"></i>
                             </a>
                         </div>
@@ -116,7 +116,7 @@
                 <div class="notice-left-wrapper">
                     <h3>notice board</h3>
                     <div class="notice-left">
-                        @foreach (var notice in Model.noticeBoards)
+                        @foreach (var notice in Model.NoticeBoards)
                         {
                             <div class="single-notice-left mb-23 pb-20">
                                 <h4>@notice.CreatedDate.ToString("dd, MMMM yyyy")</h4>

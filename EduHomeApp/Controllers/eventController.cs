@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EduHomeApp.Controllers
 {
-    public class eventController : Controller
+    public class EventController : Controller
     {
         private readonly EduHomeDbContext _context;
 
-        public eventController(EduHomeDbContext context)
+        public EventController(EduHomeDbContext context)
         {
             _context = context;
         }

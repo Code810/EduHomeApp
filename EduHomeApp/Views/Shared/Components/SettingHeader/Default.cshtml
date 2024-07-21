@@ -12,8 +12,25 @@
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="header-top-right text-right">
                         <ul>
-                            <li><a href="login.html">login</a></li>
-                            <li><a href="signup.html">signup</a></li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                <li><a>@User.Identity.Name</a></li>
+                                   <li>
+                                    <a asp-controller="account" asp-action="logout">Logout</a>
+                                    @if (User.IsInRole("admin"))
+                                    {
+                                    <a asp-area="adminarea" asp-controller="dashboard" asp-action="index">Admin</a>
+                                    }
+                                   </li>
+                                }
+                                else
+                                {
+                                    <li>
+                                    <a asp-controller="account" asp-action="login">Login</a>
+                                    </li>
+                                <li><a asp-controller="account" asp-action="register">signup</a></li>
+                                }
+                            
                         </ul>
                     </div>
                 </div>
@@ -48,28 +65,21 @@
                                         <a asp-controller="event" asp-action="index">event</a>
                                         <ul>
                                             <li><a asp-controller="event" asp-action="index">event</a></li>
-                                            <li><a href="event-left-side-bar.html">event left sidebar</a></li>
-                                            <li><a href="event-right-side-bar.html">event right sidebar</a></li>
-                                            <li><a href="event-details.html">event details</a></li>
                                         </ul>
                                     </li>
                                     <li class="hidden-sm">
                                         <a asp-controller="Teacher" asp-action="index">teacher</a>
                                         <ul>
                                             <li><a asp-controller="Teacher" asp-action="index">teacher</a></li>
-                                            <li><a href="teacher-details.html">teacher details</a></li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="blog.html">blog</a>
+                                        <a asp-controller="blog" asp-action="index">blog</a>
                                         <ul>
-                                            <li><a href="blog.html">blog</a></li>
-                                            <li><a href="blog-left-side-bar.html">blog left sidebar</a></li>
-                                            <li><a href="blog-right-side-bar.html">blog righ sidebar</a></li>
-                                            <li><a href="blog-details.html">blog details</a></li>
+                                            <li><a asp-controller="blog" asp-action="index">blog</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a asp-controller ="contact" asp-action="index">Contact</a></li>
                                     <li><a href="#">Buy Now</a>
                                 </ul>
                             </nav>

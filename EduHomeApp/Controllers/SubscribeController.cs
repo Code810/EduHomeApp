@@ -1,4 +1,5 @@
 ﻿using EduHomeApp.Data;
+using EduHomeApp.Extensions;
 using EduHomeApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +18,9 @@ namespace EduHomeApp.Controllers
         public async Task<IActionResult> SubscribeEmail(string email)
         {
             if (email == null) return BadRequest("Please write an email address.");
-            if (!ModelState.IsValid) return BadRequest("Please write a valid email address.");
+
+            if (!Email.CheckEmail(email)) return BadRequest("Please write a valid email address.");
+
             if (_context.Subscribes.Any(e => e.Email == email))
                 return BadRequest("This email address is already subscribed");
 

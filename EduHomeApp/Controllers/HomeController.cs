@@ -19,7 +19,7 @@ namespace EduHomeApp.Controllers
 
             var courses = _context.Courses
             .Include(c => c.Category)
-            .Select(course => new CourseHomeVM
+            .Select(course => new CourseListVM
             {
                 Id = course.Id,
                 Category = course.Category.Name,
@@ -35,7 +35,7 @@ namespace EduHomeApp.Controllers
                 homeContent = _context.HomeContents.AsNoTracking().SingleOrDefault(),
                 CourseHomeVMs = courses,
                 Events = _context.Events.AsNoTracking().ToList(),
-                Blogs = _context.Blogs.AsNoTracking().ToList(),
+                Blogs = _context.Blogs.OrderByDescending(b => b.CreatedDate).Take(3).AsNoTracking().ToList(),
             };
 
             return View(homeVm);

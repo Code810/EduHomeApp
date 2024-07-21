@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Qa4Iiows0HPWm53R45WiSuNVXYnVaFp5zfmMEGkESh8=",
+  "Hash": "qmdMX5ashzps1s7sbsXrJlLHDpg+dIZarjYMO5SSSO4=",
   "Source": "EduHomeApp",
   "BasePath": "_content/EduHomeApp",
   "Mode": "Default",
@@ -287,6 +287,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\sweetalert2.css"
+    },
+    {
+      "Identity": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\emailTemplate\\emailConfirm.html",
+      "SourceId": "EduHomeApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\",
+      "BasePath": "_content/EduHomeApp",
+      "RelativePath": "emailTemplate/emailConfirm.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\emailTemplate\\emailConfirm.html"
+    },
+    {
+      "Identity": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\emailTemplate\\forgotPassword.html",
+      "SourceId": "EduHomeApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\",
+      "BasePath": "_content/EduHomeApp",
+      "RelativePath": "emailTemplate/forgotPassword.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\emailTemplate\\forgotPassword.html"
     },
     {
       "Identity": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\fonts\\et-line.eot",

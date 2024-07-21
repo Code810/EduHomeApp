@@ -6,8 +6,8 @@ namespace EduHomeApp.ViewModels
     {
         public AboutArea AboutArea { get; set; }
         public IEnumerable<TeacherAbouutVm> TeacherAbouutVm { get; set; }
-        public Dictionary<string, string> settings { get; set; }
-        public IEnumerable<NoticeBoard> noticeBoards { get; set; }
+        public Dictionary<string, string> Settings { get; set; }
+        public IEnumerable<NoticeBoard> NoticeBoards { get; set; }
 
 
     }

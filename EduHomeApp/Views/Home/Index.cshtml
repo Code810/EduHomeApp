@@ -19,7 +19,7 @@
                                     <div class="slide-content">
                                         <h3>@slide.Title</h3>
                                         <p>@slide.Description</p>
-                                        <a class="default-btn" href="about.html">Learn more</a>
+                                        <a class="default-btn" asp-controller="about" asp-action="index">Learn more</a>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
                         <div class="choose-content text-left">
                             <h2>@Model.homeContent.Title</h2>
                             <p>@Model.homeContent.Description </p>
-                            <a class="default-btn" href="course-details.html">view courses</a>
+                            <a class="default-btn" asp-controller="courses" asp-action="index">view courses</a>
                         </div>  
                     </div>
                 </div>
@@ -139,18 +139,18 @@
                 {
                     <div class="col-md-6 single-event mb-35"style="height:100px">
                         <div class="event-date" style="width:90px">
-                            <h3><a href="event-details.html">@item.Time.Day <span>@item.Time.ToString("MMMM")</span></a></h3>
+                            <h3><a asp-controller="event" asp-action="detail" asp-route-id="@item.Id">@item.Time.Day <span>@item.Time.ToString("MMMM")</span></a></h3>
                         </div>
                         <div class="event-content text-left">
                             <div class="event-content-left">
-                                <h5><a href="event-details.html">@item.Title</a></h5>
+                                <h5><a asp-controller="event" asp-action="detail" asp-route-id="@item.Id">@item.Title</a></h5>
                                 <ul>
                                     <li><i class="fa fa-clock-o"></i>@item.Time.ToString("HH:mm") AM</li>
                                     <li><i class="fa fa-map-marker"></i>@item.Address</li>
                                 </ul>
                             </div>
                             <div class="event-content-right">
-                                <a class="default-btn" href="event-details.html">join now</a>
+                                <a class="default-btn" asp-controller="event" asp-action="detail" asp-route-id="@item.Id">join now</a>
                             </div>
                         </div>
                     </div>
@@ -202,9 +202,9 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="single-blog">
                         <div class="blog-img">
-                            <a href="blog-details.html"><img src="~/img/blog/@blog.ImageUrl" alt="blog"></a>
+                            <a asp-controller="blog" asp-action="detail" asp-route-id="@blog.Id"><img src="~/img/blog/@blog.ImageUrl" alt="blog"></a>
                             <div class="blog-hover">
-                                <a href="blog-details.html"><i class="fa fa-link"></i></a>
+                                <a asp-controller="blog" asp-action="detail" asp-route-id="@blog.Id"><i class="fa fa-link"></i></a>
                             </div>
                         </div>
                         <div class="blog-content">
@@ -212,7 +212,7 @@
                                 <p>By @blog.UserId  / @blog.CreatedDate.ToString("MMMM dd,yyyy")  /  <i class="fa fa-comments-o"></i> 4</p>
                             </div>
                             <div class="blog-bottom">
-                                <h2><a href="blog-details.html">@blog.Title</a></h2>
+                                <h2><a asp-controller="blog" asp-action="detail" asp-route-id="@blog.Id">@blog.Title</a></h2>
                                 <a href="blog-details.html">read more</a>
                             </div>
                         </div>

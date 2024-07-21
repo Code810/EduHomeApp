@@ -26,7 +26,7 @@ namespace EduHomeApp.Controllers
                     Facebook = e.TeacherContact.Facebook,
                     Instagram = e.TeacherContact.Instagram,
                     Twitter = e.TeacherContact.Twitter,
-                    Pinteres = e.TeacherContact.Pinteres
+                    Pinteres = e.TeacherContact.Pinteres,
                 }).ToListAsync();
             return View(teachers);
         }
@@ -36,7 +36,6 @@ namespace EduHomeApp.Controllers
             if (id == null) return BadRequest();
             var existTeacher = await _context.Teachers
                 .Include(t => t.TeacherContact)
-                .Include(t => t.TeacherSkills).ThenInclude(s => s.Skills)
                 .FirstOrDefaultAsync(e => e.Id == id);
             if (existTeacher == null) return NotFound();
 
@@ -50,15 +49,13 @@ namespace EduHomeApp.Controllers
                 Hobbies = existTeacher.Hobbies,
                 Faculty = existTeacher.Faculty,
                 ImageUrl = existTeacher.ImageUrl,
-                skills = existTeacher.TeacherSkills.Select(e => new SkillsListVm()
-                {
-                    Language = e.Skills.Language,
-                    Design = e.Skills.Design,
-                    TeamLeader = e.Skills.TeamLeader,
-                    Innovation = e.Skills.Innovation,
-                    Development = e.Skills.Development,
-                    Communication = e.Skills.Communication
-                }).ToList(),
+                Language = existTeacher.Language,
+                TeamLeader = existTeacher.TeamLeader,
+                Design = existTeacher.Design,
+                Development = existTeacher.Development,
+                Innovation = existTeacher.Innovation,
+                Communication = existTeacher.Communication,
+
 
                 contactListVm = new()
                 {

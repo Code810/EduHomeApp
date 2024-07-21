@@ -1,5 +1,4 @@
 ﻿using EduHomeApp.Data;
-using EduHomeApp.Models;
 using EduHomeApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,18 +15,31 @@ namespace EduHomeApp.Controllers
         }
         public IActionResult Index(int? id)
         {
-            ICollection<Course> courses;
+            ICollection<CourseListVM> courses;
 
             if (id == null)
             {
                 courses = _context.Courses
-              .Include(c => c.Category)
-              .AsNoTracking()
-              .ToList();
+           .Include(c => c.Category)
+           .Select(course => new CourseListVM
+           {
+               Id = course.Id,
+               Category = course.Category.Name,
+               ImageUrl = course.ImageUrl,
+               Description = course.Description
+           }).ToList();
+
             }
             else
             {
-                courses = _context.Courses.Include(c => c.Category).Where(c => c.CategoryId == id).ToList();
+                courses = _context.Courses.Include(c => c.Category)
+                    .Where(c => c.CategoryId == id).Select(course => new CourseListVM
+                    {
+                        Id = course.Id,
+                        Category = course.Category.Name,
+                        ImageUrl = course.ImageUrl,
+                        Description = course.Description
+                    }).ToList();
             }
 
             return View(courses);

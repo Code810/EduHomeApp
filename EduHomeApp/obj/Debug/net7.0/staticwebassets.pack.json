@@ -61,6 +61,14 @@
       "PackagePath": "staticwebassets\\css\\sweetalert2.css"
     },
     {
+      "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\emailTemplate\\emailConfirm.html",
+      "PackagePath": "staticwebassets\\emailTemplate\\emailConfirm.html"
+    },
+    {
+      "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\emailTemplate\\forgotPassword.html",
+      "PackagePath": "staticwebassets\\emailTemplate\\forgotPassword.html"
+    },
+    {
       "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\fonts\\Material-Design-Iconic-Fontd1f1.ttf",
       "PackagePath": "staticwebassets\\fonts\\Material-Design-Iconic-Fontd1f1.ttf"
     },
