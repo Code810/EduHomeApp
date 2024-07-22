@@ -14,7 +14,7 @@
                         <ul>
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                <li><a>@User.Identity.Name</a></li>
+                                <li><a>@ViewBag.FullName</a></li>
                                    <li>
                                     <a asp-controller="account" asp-action="logout">Logout</a>
                                     @if (User.IsInRole("admin"))

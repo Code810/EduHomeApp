@@ -4,6 +4,8 @@
     {
         admin,
         member,
+        student,
+        teacher,
         superadmin
     }
 }

@@ -1,0 +1,43 @@
+﻿@model AboutArea
+<div class="container">
+    <div class="row">
+        <div class="col-lg-11 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">About area</h4>
+                    <p class="card-description">
+                    </p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Setting</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="~/img/about/@Model.ImageUrl" alt="" />
+                                </td>
+                                <td>@Html.Raw(Model.Title)</td>
+                                <td>@(Model.Description.Length > 50 ? Model.Description.Substring(0, 50) : Model.Description)</td>
+                                <td>
+                                    <a class="text-primary pe-2 text-decoration-none" asp-action="detail" asp-route-id="@Model.Id">
+
+                                        <i class="fa fa-info-circle"></i>
+                                    </a>
+                                    <a class="text-succes pe-2 text-decoration-none" asp-action="update" asp-route-id="@Model.Id">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

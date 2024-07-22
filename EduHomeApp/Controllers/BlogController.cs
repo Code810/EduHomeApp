@@ -32,7 +32,7 @@ namespace EduHomeApp.Controllers
                 Title = existBlog.Title,
                 Desc = existBlog.Desc,
                 ImageUrl = existBlog.ImageUrl,
-                UserId = existBlog.UserId,
+                UserId = existBlog.AppUserId,
                 CreateDate = existBlog.CreatedDate,
                 Categories = await _context.Categories.Include(c => c.Courses)
                 .Select(c => new CategoryListVm() { Name = c.Name, Count = c.Courses.Count, Id = c.Id }).ToListAsync()

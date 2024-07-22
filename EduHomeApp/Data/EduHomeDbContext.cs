@@ -27,6 +27,7 @@ namespace EduHomeApp.Data
         public DbSet<AboutArea> AboutArea { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<TeacherContact> TeacherContacts { get; set; }
+        public DbSet<Student> Students { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

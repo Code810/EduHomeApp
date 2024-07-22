@@ -16,7 +16,7 @@ namespace EduHomeApp.Models
         public string Hobbies { get; set; }
         public string Faculty { get; set; }
         public string ImageUrl { get; set; }
-        public string AppUserId { get; set; }
+        public string? AppUserId { get; set; }
         public AppUser AppUser { get; set; }
         public int Language { get; set; }
         public int TeamLeader { get; set; }

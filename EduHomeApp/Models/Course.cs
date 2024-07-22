@@ -22,7 +22,7 @@
         public IEnumerable<CourseTag> CourseTags { get; set; }
         public IEnumerable<Student> Students { get; set; }
 
-        public int TeacherId { get; set; }
+        public int? TeacherId { get; set; }
         public Teacher Teacher { get; set; }
 
 
