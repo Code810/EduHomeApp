@@ -1,0 +1,39 @@
+﻿@model BlogUpdateVm
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Category update form</h4>
+                    <img src="~/img/blog/@Model.ImageUrl" style="margin-bottom:20px" />
+
+                    <form enctype="multipart/form-data" asp-action="update" class="forms-sample" method="post">
+                        <div class="form-group">
+                            <label asp-for="Title"></label>
+                            <input asp-for="Title" class="form-control" placeholder="Title">
+                            <span class="text-danger" asp-validation-for="Title"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Desc"> </label>
+                            <input asp-for="Desc" class="form-control" placeholder="Desc">
+                            <span class="text-danger" asp-validation-for="Desc"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Photo"> </label>
+                            <input asp-for="Photo" class="form-control" placeholder="Photo">
+                            <span class="text-danger" asp-validation-for="Photo"></span>
+                        </div>
+                        <button type="submit" class="btn btn-gradient-primary me-2">Update</button>
+                        <a class="btn btn-light" asp-action="index">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+
+}

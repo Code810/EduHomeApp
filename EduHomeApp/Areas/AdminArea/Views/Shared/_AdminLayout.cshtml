@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="~/admin/vendors/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/admin/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
     <!-- End plugin css for this page -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.12.3/sweetalert2.css" integrity="sha512-Gebe6n4xsNr0dWAiRsMbjWOYe1PPVar2zBKIyeUQKPeafXZ61sjU2XCW66JxIPbDdEH3oQspEoWX8PQRhaKyBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
@@ -225,10 +226,7 @@
                                     <a class="nav-link" asp-controller="user" asp-action="index">User</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" asp-controller="student" asp-action="index">Student</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-controller="teacher" asp-action="index">Teacher</a>
+                                    <a class="nav-link" asp-controller="Roles" asp-action="index">Roles</a>
                                 </li>
                             </ul>
                         </div>
@@ -324,9 +322,11 @@
     <script src="~/admin/js/settings.js"></script>
     <script src="~/admin/js/todolist.js"></script>
     <script src="~/admin/js/jquery.cookie.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.12.3/sweetalert2.min.js" integrity="sha512-xEhAaMBML+bAt3JgAHMq8PGEENIWZC7CT6dDdtdS8kwqFlkvy6qbKGluBYIBbrzLJHsNgqQKzy6L/l+WgniBag==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="~/admin/js/dashboard.js"></script>
+    <script src="~/admin/js/script.js"></script>
     <!-- End custom js for this page -->
     @RenderSection("scripts",false);
 </body>

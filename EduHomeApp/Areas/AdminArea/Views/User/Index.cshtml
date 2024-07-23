@@ -1,0 +1,94 @@
+﻿@model IEnumerable<AppUser>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">User table</h4>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <td>Fullname</td>
+                                <th> Username </th>
+                                <th> Email</th>
+                                <th> Blocked</th>
+                                <th> Settings</th>
+                            </tr>
+                            <form asp-action="index">
+                                <div class="form-group col-lg-6 d-flex justify-content-center align-items-center">
+                                    <div class="form-check pe-4">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="usercheck" class="form-check-input checkuser" value="student"> Student
+                                        </label>
+                                    </div>
+                                    <div class="form-check pe-4">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="usercheck" class="form-check-input checkuser" value="teacher"> Teacher
+                                        </label>
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control searchinp" name="searchText" placeholder="Search">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-sm btn-gradient-primary py-3 usersearch" type="button">Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </form>
+                        </thead>
+                        <tbody class="userviewarea">
+                            @foreach (var user in Model)
+                            {
+                                <tr>
+                                    <td>@user.FullName</td>
+                                    <td>@user.UserName</td>
+                                    <td>@user.Email</td>
+                                    @if (user.IsBlocked)
+                                    {
+                                        <td class="text-danger">Blocked</td>
+
+                                    }
+                                    else
+                                    {
+                                        <td class="text-success">Active</td>
+
+                                    }
+                                    <td>
+                                        @if (User.Identity.Name != user.UserName)
+                                        {
+                                            <a class="text-primary pe-2 text-decoration-none" asp-action="ChangeStatus" asp-route-id="@user.Id">
+                                                @if (user.IsBlocked)
+                                                {
+                                                    <i class="fa fa-unlock"></i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="fa fa-lock"></i>
+                                                }
+                                            </a>
+                                        }
+                                        <a class="text-primary pe-2 text-decoration-none" asp-action="detail" asp-route-id="@user.Id">
+
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                        <a class="text-succes pe-2 text-decoration-none" asp-action="update" asp-route-id="@user.Id">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a class="text-danger text-decoration-none deleteuser" id="@user.Id">
+                                            <i class="fa fa-trash-o "></i>
+                                        </a>
+                                        <a class="text-danger text-decoration-none" asp-controller="role" asp-action="UpdateUserRole" asp-route-id="@user.Id">
+                                            <i class="fa fa-check "></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

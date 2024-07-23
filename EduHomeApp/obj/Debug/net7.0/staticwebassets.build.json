@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0IEDWlkz60axQ4TgKKNpHI42SzogYutNYKHujJxg64M=",
+  "Hash": "4GxfXASON+dPj9SSMu7zisEj91BUgiEDTDjSYwj6oUA=",
   "Source": "EduHomeApp",
   "BasePath": "_content/EduHomeApp",
   "Mode": "Default",
@@ -4862,6 +4862,23 @@
       "OriginalItemSpec": "wwwroot\\admin\\js\\off-canvas.js"
     },
     {
+      "Identity": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\admin\\js\\script.js",
+      "SourceId": "EduHomeApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\",
+      "BasePath": "_content/EduHomeApp",
+      "RelativePath": "admin/js/script.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin\\js\\script.js"
+    },
+    {
       "Identity": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\admin\\js\\select2.js",
       "SourceId": "EduHomeApp",
       "SourceType": "Discovered",
@@ -6324,12 +6341,12 @@
       "OriginalItemSpec": "wwwroot\\img\\banner\\banner.jpg"
     },
     {
-      "Identity": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\blog\\blog1.jpg",
+      "Identity": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\blog\\6cc01ce1-7531-493a-8038-519d6102abde.png",
       "SourceId": "EduHomeApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\",
       "BasePath": "_content/EduHomeApp",
-      "RelativePath": "img/blog/blog1.jpg",
+      "RelativePath": "img/blog/6cc01ce1-7531-493a-8038-519d6102abde.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -6338,7 +6355,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\blog\\blog1.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\blog\\6cc01ce1-7531-493a-8038-519d6102abde.png"
     },
     {
       "Identity": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\blog\\blog2.jpg",

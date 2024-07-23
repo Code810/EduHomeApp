@@ -1137,6 +1137,10 @@
       "PackagePath": "staticwebassets\\admin\\js\\off-canvas.js"
     },
     {
+      "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\admin\\js\\script.js",
+      "PackagePath": "staticwebassets\\admin\\js\\script.js"
+    },
+    {
       "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\admin\\js\\select2.js",
       "PackagePath": "staticwebassets\\admin\\js\\select2.js"
     },
@@ -1481,16 +1485,16 @@
       "PackagePath": "staticwebassets\\img\\banner\\banner.jpg"
     },
     {
+      "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\blog\\6cc01ce1-7531-493a-8038-519d6102abde.png",
+      "PackagePath": "staticwebassets\\img\\blog\\6cc01ce1-7531-493a-8038-519d6102abde.png"
+    },
+    {
       "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\blog\\blog-detail.jpg",
       "PackagePath": "staticwebassets\\img\\blog\\blog-detail.jpg"
     },
     {
       "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\blog\\blog-img.jpg",
       "PackagePath": "staticwebassets\\img\\blog\\blog-img.jpg"
-    },
-    {
-      "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\blog\\blog1.jpg",
-      "PackagePath": "staticwebassets\\img\\blog\\blog1.jpg"
     },
     {
       "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\blog\\blog2.jpg",

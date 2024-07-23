@@ -1,11 +1,9 @@
 ﻿namespace EduHomeApp.Areas.AdminArea.ViewModels
 {
-    public class AboutUpdateVm
+    public class BlogCreateVm
     {
         public IFormFile Photo { get; set; }
-        public string ImageUrl { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
-
+        public string Desc { get; set; }
     }
 }

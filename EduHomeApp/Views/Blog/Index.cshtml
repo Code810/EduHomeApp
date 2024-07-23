@@ -32,7 +32,7 @@
                         </div>
                         <div class="blog-content">
                             <div class="blog-top">
-                                @* <p>By @blog.AppUserId  /  @blog.CreatedDate.ToString("MMMM dd,yyyy")  /  <i class="fa fa-comments-o"></i> 4</p> *@
+                                <p>By @blog.AppUser.FullName  /  @blog.CreatedDate.ToString("MMMM dd,yyyy")  /  <i class="fa fa-comments-o"></i> 4</p>
                             </div>
                             <div class="blog-bottom">
                                 <h2><a asp-controller="blog" asp-action="detail" asp-route-id="@blog.Id" >@blog.Title</a></h2>

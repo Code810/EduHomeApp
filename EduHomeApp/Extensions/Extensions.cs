@@ -1,4 +1,4 @@
-﻿namespace FiorelloApp.Extensions
+﻿namespace EduHomeApp.Extensions
 {
     public static class Extensions
     {

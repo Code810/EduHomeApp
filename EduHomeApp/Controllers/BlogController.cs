@@ -16,7 +16,7 @@ namespace EduHomeApp.Controllers
         }
         public async Task<IActionResult> Index(int page = 1)
         {
-            var query = _context.Blogs.AsQueryable();
+            var query = _context.Blogs.Include(b => b.AppUser).AsQueryable();
 
             return View(await PaginationVm<Blog>.Create(query, page, 3));
         }
@@ -24,6 +24,7 @@ namespace EduHomeApp.Controllers
         {
             if (id == null) return BadRequest();
             var existBlog = await _context.Blogs
+                .Include(b => b.AppUser)
                 .FirstOrDefaultAsync(e => e.Id == id);
             if (existBlog == null) return NotFound();
 
@@ -32,7 +33,7 @@ namespace EduHomeApp.Controllers
                 Title = existBlog.Title,
                 Desc = existBlog.Desc,
                 ImageUrl = existBlog.ImageUrl,
-                UserId = existBlog.AppUserId,
+                AppUser = existBlog.AppUser.FullName,
                 CreateDate = existBlog.CreatedDate,
                 Categories = await _context.Categories.Include(c => c.Courses)
                 .Select(c => new CategoryListVm() { Name = c.Name, Count = c.Courses.Count, Id = c.Id }).ToListAsync()
