@@ -63,19 +63,33 @@
                 const userid = btn.attr("id");
                
                 $.ajax({
-                    url: "/adminarea/User/Delete",
+                    url: `/adminarea/User/Delete/${userid}`,
                     method: "delete",
-                    data: { id: userid },
                     success: function () {
                         btn.parent().parent().remove();
-                    }
+                    },
+                    
                 });
             }
         });
     });
 
+    //remove tag start
 
 
+    $(".removetag").on("click", function (e) {
+        const coursId = $(this).attr("cours-id");
+        const tagId = $(this).attr("tag-id");
+        const btn = $(this);
+        $.ajax({
+            url: `/adminarea/Course/RemoveTags?courseId=${coursId}&tagId=${tagId}`,
+            method: "delete",
+            success: function (data) {
+                $(".tags").append(datas)
+                btn.parent().remove();
+            }
+            });
+    });
 
 
 

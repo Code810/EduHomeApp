@@ -1,0 +1,118 @@
+﻿@model CourseCreateVm
+@{
+    var categories = ViewBag.Categories;
+    var teachers = ViewBag.Teachers;
+    var language = ViewBag.language;
+    var tags = ViewBag.tags;
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Category Create form</h4>
+                    <form enctype="multipart/form-data" asp-action="create" class="forms-sample" style="display:flex;
+                      flex-wrap:wrap; justify-content:space-around" method="post">
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Name"></label>
+                            <input asp-for="Name" class="form-control" placeholder="Name">
+                            <span class="text-danger" asp-validation-for="Name"></span>
+                        </div>
+
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Duration"> </label>
+                            <input asp-for="Duration" class="form-control" placeholder="Duration">
+                            <span class="text-danger" asp-validation-for="Duration"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="ClassDuration"> </label>
+                            <input asp-for="ClassDuration" class="form-control" placeholder="ClassDuration">
+                            <span class="text-danger" asp-validation-for="ClassDuration"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="SkillLevel"> </label>
+                            <input asp-for="SkillLevel" class="form-control" placeholder="SkillLevel">
+                            <span class="text-danger" asp-validation-for="SkillLevel"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="StudentCapacity"> </label>
+                            <input asp-for="StudentCapacity" class="form-control" placeholder="StudentCapacity">
+                            <span class="text-danger" asp-validation-for="StudentCapacity"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Assesment"> </label>
+                            <input asp-for="Assesment" class="form-control" placeholder="Assesment">
+                            <span class="text-danger" asp-validation-for="Assesment"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Price"> </label>
+                            <input asp-for="Price" class="form-control" placeholder="Price">
+                            <span class="text-danger" asp-validation-for="Price"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Description"> </label>
+                            <input asp-for="Description" class="form-control" placeholder="Description">
+                            <span class="text-danger" asp-validation-for="Description"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="About"> </label>
+                            <input asp-for="About" class="form-control" placeholder="About">
+                            <span class="text-danger" asp-validation-for="About"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Apply"> </label>
+                            <input asp-for="Apply" class="form-control" placeholder="Apply">
+                            <span class="text-danger" asp-validation-for="Apply"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Certfication"> </label>
+                            <input asp-for="Certfication" class="form-control" placeholder="Certfication">
+                            <span class="text-danger" asp-validation-for="Certfication"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Photo"> </label>
+                            <input asp-for="Photo" class="form-control" placeholder="Description">
+                            <span class="text-danger" asp-validation-for="Photo"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="StartDate"> </label>
+                            <input asp-for="StartDate" class="form-control" placeholder="StartDate">
+                            <span class="text-danger" asp-validation-for="StartDate"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label for="exampleFormControlSelect1">Large select</label>
+                            <select class="form-select form-select-lg" asp-for="CategoryId" asp-items="@categories">
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label for="exampleFormControlSelect1">Large select</label>
+                            <select class="form-select form-select-lg" asp-for="TeacherId" asp-items="@teachers">
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label for="exampleFormControlSelect1">Large select</label>
+                            <select class="form-select form-select-lg" asp-for="CourseLanguageId" asp-items="@language">
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label for="exampleFormControlSelect1">Large select</label>
+                            <select class="form-select form-select-lg" asp-for="TagIds" asp-items="@tags">
+                            </select>
+                        </div>
+                        <div class="col-lg-5"></div>
+                        <div>
+                            <button type="submit" class="btn btn-gradient-primary me-2">Create</button>
+                            <a class="btn btn-light" asp-action="index">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+
+}

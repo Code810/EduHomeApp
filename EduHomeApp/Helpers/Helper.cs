@@ -1,4 +1,4 @@
-﻿namespace FiorelloApp.Helpers
+﻿namespace EduHomeApp.Helpers
 {
     public class Helper
     {

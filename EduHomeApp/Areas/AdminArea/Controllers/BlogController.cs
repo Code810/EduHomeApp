@@ -1,9 +1,9 @@
 ﻿using EduHomeApp.Areas.AdminArea.ViewModels;
 using EduHomeApp.Data;
 using EduHomeApp.Extensions;
+using EduHomeApp.Helpers;
 using EduHomeApp.Models;
 using EduHomeApp.ViewModels;
-using FiorelloApp.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
@@ -66,7 +66,7 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
             blog.Title = blogCreateVm.Title;
             blog.Desc = blogCreateVm.Desc;
             blog.CreatedDate = DateTime.Now;
-            blog.AppUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            blog.AppUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             await _dbContext.Blogs.AddAsync(blog);
             await _dbContext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

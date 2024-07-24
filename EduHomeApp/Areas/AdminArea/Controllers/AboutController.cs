@@ -1,7 +1,7 @@
 ﻿using EduHomeApp.Areas.AdminArea.ViewModels;
 using EduHomeApp.Data;
 using EduHomeApp.Extensions;
-using FiorelloApp.Helpers;
+using EduHomeApp.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

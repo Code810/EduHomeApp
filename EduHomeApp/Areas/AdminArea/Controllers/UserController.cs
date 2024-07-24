@@ -156,15 +156,23 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
             var user = await _userManager.FindByIdAsync(id);
             if (user == null) return NotFound();
 
-            var result = await _userManager.DeleteAsync(user);
-            if (!result.Succeeded)
+            try
             {
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError("", error.Description);
-                }
-                return BadRequest(ModelState);
+                var result = await _userManager.DeleteAsync(user);
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            //if (!result.Succeeded)
+            //{
+            //    foreach (var error in result.Errors)
+            //    {
+            //        ModelState.AddModelError("", error.Description);
+            //    }
+            //    return BadRequest(ModelState);
+            //}
 
             return Ok();
         }

@@ -1,0 +1,74 @@
+﻿@model Course
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="courses-details-img">
+                        <img src="~/img/course/@Model.ImageUrl" alt="courses-details">
+                    </div>
+                    <div class="course-details-content">
+                        <h2>@Model.Name</h2>
+                        <p>@Model.Description </p>
+                        <div class="course-details-left">
+                            <div class="single-course-left">
+                                <h3>about course</h3>
+                                <p>@Model.About</p>
+                            </div>
+                            <div class="single-course-left">
+                                <h3>how to apply</h3>
+                                <p>@Model.Apply</p>
+                            </div>
+                            <div class="single-course-left">
+                                <h3>certification</h3>
+                                <p class="single-course-left"> @Model.Certfication</p>
+
+                            </div>
+                        </div>
+                        <div class="course-details-right">
+                            <h3>COURSE FEATURES</h3>
+                            <ul>
+                                <li>Category <span>@Model.Category</span></li>
+                                <li>starts <span>@Model.StartDate.ToString("dd MMMM yyyy")</span></li>
+                                <li>duration <span>@Model.Duration Month</span></li>
+                                <li>class duration <span>@Model.ClassDuration hours</span></li>
+                                <li>skill level <span>@Model.SkillLevel</span></li>
+                                <li>language <span>@Model.CourseLanguage</span></li>
+                                <li>students <span>@Model.StudentCapacity</span></li>
+                                <li>assesments <span>@Model.Assesment</span></li>
+                            </ul>
+                            <h3 class="red">course fee $@Model.Price</h3>
+                        </div>
+                    </div>
+                </div>
+                <div style="display:flex; align-items:center;">
+                    <h2>Teacher:</h2>
+                    <h3 class="text-primary">@Model.Teacher.FullName</h3>
+                </div>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> Name </th>
+                            <th> Username </th>
+                            <th> Email </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var student in Model.Students)
+                        {
+                            <tr>
+                                <td>@student.AppUser.FullName</td>
+                                <td>@student.AppUser.UserName</td>
+                                <td>@student.AppUser.Email</td>
+                               
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <a class="btn btn-dark my-4" asp-action="index">Go Back</a>
+            </div>
+        </div>
+    </div>
+</div>
