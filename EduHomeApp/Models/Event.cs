@@ -8,6 +8,6 @@
         public DateTime Time { get; set; }
         public string Address { get; set; }
         public string Description { get; set; }
-        public IEnumerable<EventSpeaker> EventSpeakers { get; set; }
+        public List<EventSpeaker> EventSpeakers { get; set; }
     }
 }

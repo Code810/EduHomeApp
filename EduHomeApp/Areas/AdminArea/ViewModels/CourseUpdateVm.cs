@@ -17,10 +17,10 @@ namespace EduHomeApp.Areas.AdminArea.ViewModels
         public string About { get; set; }
         public string Apply { get; set; }
         public string Certfication { get; set; }
-        public IEnumerable<CourseTag> CourseTags { get; set; }
-        public IEnumerable<int> TagIds { get; set; }
+        public IEnumerable<CourseTag>? CourseTags { get; set; }
+        public IEnumerable<int>? TagIds { get; set; }
         public IFormFile? Photo { get; set; }
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
         public DateTime StartDate { get; set; }
         public int CategoryId { get; set; }
         public int TeacherId { get; set; }

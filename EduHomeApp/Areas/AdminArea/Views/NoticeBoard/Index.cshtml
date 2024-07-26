@@ -1,0 +1,46 @@
+﻿@model IEnumerable<NoticeBoard>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-11 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Home Content area</h4>
+                    <a class="btn btn-outline-success" asp-action="create">Create</a>
+                    <p class="card-description">
+                    </p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>CreatedDate</th>
+                                <th>Setting</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var notice in Model)
+                                {
+                                <tr>
+                                    <td>@notice.CreatedDate.ToString("dd MMMM yyyy")</td>
+                                    <td>@(notice.Description.Length > 50 ? notice.Description.Substring(0, 50) : notice.Description)</td>
+                                    <td>
+                                        <a class="text-primary pe-2 text-decoration-none" asp-action="detail" asp-route-id="@notice.Id">
+
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                        <a class="text-succes pe-2 text-decoration-none" asp-action="update" asp-route-id="@notice.Id">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a class="text-danger text-decoration-none delete-notice" notice-id="@notice.Id">
+                                            <i class="fa fa-trash-o"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                }
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,6 +4,7 @@ using EduHomeApp.Services.Interfaces;
 using EduHomeApp.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EduHomeApp.Controllers
 {
@@ -181,6 +182,49 @@ namespace EduHomeApp.Controllers
             await _signInManager.SignInAsync(appUser, false);
             return RedirectToAction("login", "account");
         }
+
+        public async Task<IActionResult> UpdateProfile()
+        {
+            if (!User.Identity.IsAuthenticated) RedirectToAction("login");
+            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.UserName == User.Identity.Name);
+            UserProfileUpdateVm userProfileUpdateVm = new();
+            userProfileUpdateVm.FullName = user.FullName;
+            userProfileUpdateVm.UserName = user.UserName;
+            userProfileUpdateVm.Email = user.Email;
+            return View(userProfileUpdateVm);
+        }
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> UpdateProfile(UserProfileUpdateVm userProfileUpdateVm)
+        {
+            if (!User.Identity.IsAuthenticated) RedirectToAction("login");
+            if (!ModelState.IsValid) return View(userProfileUpdateVm);
+            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.UserName == User.Identity.Name);
+            if (user == null) return BadRequest();
+            userProfileUpdateVm.Email = user.Email;
+            var existUser = _userManager.Users.Any(u => u.UserName == userProfileUpdateVm.UserName && u.Id != user.Id);
+            if (existUser)
+            {
+                ModelState.AddModelError("UserName", "Bu username artiq sistemde var");
+                return View(userProfileUpdateVm);
+            }
+            if (!await _userManager.CheckPasswordAsync(user, userProfileUpdateVm.Password))
+            {
+                ModelState.AddModelError("Password", "Sifre yalnisdir");
+                return View(userProfileUpdateVm);
+            }
+            user.UserName = userProfileUpdateVm.UserName;
+            user.FullName = userProfileUpdateVm.FullName;
+            if (userProfileUpdateVm.newPassword != null && userProfileUpdateVm.newRePassword != null && userProfileUpdateVm.newPassword.Contains(userProfileUpdateVm.newRePassword))
+            {
+                await _userManager.ChangePasswordAsync(user, userProfileUpdateVm.Password, userProfileUpdateVm.newRePassword);
+            }
+            await _userManager.UpdateAsync(user);
+            await _signInManager.SignOutAsync();
+            await _signInManager.SignInAsync(user, true);
+            return RedirectToAction("index", "home");
+        }
+
 
         //public async Task CreateRoles()
         //{

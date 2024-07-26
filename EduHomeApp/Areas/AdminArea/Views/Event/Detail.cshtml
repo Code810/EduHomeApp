@@ -1,0 +1,22 @@
+﻿@model EventListVm
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <img src="~/img/event/@Model.ImageUrl" alt="" />
+                    <h1 class="card-title my-4">@Model.Title</h1>
+                    <p class="text-secondary my-4">@Model.Description</p>
+                    <p class="text-secondary my-4">By:@Model.Address</p>
+                    <p class="text-secondary my-4">By:@Model.Time.ToString("dd.MM.yyyy")</p>
+                    @foreach (var speaker in Model.Speakers)
+                    {
+                        <p>@speaker</p>
+                    }
+                    <a class="btn btn-dark my-4" asp-action="index">Go Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<CourseLanguage>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Course table</h4>
+                    <a class="btn btn-outline-success" asp-action="create">Create</a>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th> Name </th>
+                                <th> Created Date </th>
+                                <th> Updated Date </th>
+                                <th> Settings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var language in Model)
+                            {
+                                <tr>
+                                    <td>@language.Name</td>
+                                    <td>@language.CreatedDate</td>
+                                    <td>@language.UpdatedDate</td>
+                                    <td>
+                                        <a class="text-succes pe-2 text-decoration-none" asp-action="update" asp-route-id="@language.Id">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a class="text-danger text-decoration-none delete-courselanguage" language-id="@language.Id">
+                                            <i class="fa fa-trash-o"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

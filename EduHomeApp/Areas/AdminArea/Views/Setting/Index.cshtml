@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Setting>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Blog table</h4>
+                    <a class="btn btn-outline-success" asp-action="create">Create</a>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                
+                                <th> Key </th>
+                                <th> Value</th>
+                                <th> Created date</th>
+                                <th> Settings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var setting in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @setting.Key
+                                    </td>
+                                    <td>@{
+                                            if (setting.Value.Contains(".png"))
+                                            {
+                                                <img src="~/img/logo/@setting.Value" alt="" />
+                                            }
+                                            else
+                                            {
+                                                @setting.Value
+                                            }
+                                        }</td>
+                                    <td>@setting.CreatedDate.ToString("dd.MM.yyyy")</td>
+                                    <td>
+                                        <a class="text-primary pe-2 text-decoration-none" asp-action="detail" asp-route-id="@setting.Id">
+
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                        <a class="text-succes pe-2 text-decoration-none" asp-action="update" asp-route-id="@setting.Id">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a class="text-danger text-decoration-none delete-slider" slider-id="@setting.Id">
+                                            <i class="fa fa-trash-o"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

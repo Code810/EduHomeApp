@@ -1,0 +1,34 @@
+﻿@model TagUpdateVm
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Tag Update form</h4>
+
+                    <form enctype="multipart/form-data" asp-action="update" class="forms-sample" style="display:flex;
+                      flex-wrap:wrap; justify-content:space-around" method="post">
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Name"></label>
+                            <input asp-for="Name" class="form-control" placeholder="Name">
+                            <span class="text-danger" asp-validation-for="Name"></span>
+                        </div>
+                        <div class="col-lg-5"></div>
+                        <div>
+                            <button type="submit" class="btn btn-gradient-primary me-2">Update</button>
+                            <a class="btn btn-light" asp-action="index">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+
+}
+

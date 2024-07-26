@@ -14,18 +14,27 @@
                         <ul>
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                <li><a>@ViewBag.FullName</a></li>
+                                <li>
+                                    <a asp-controller="account" asp-action="updateProfile">
+                                        <i class="fa fa-user-o"></i>
+                                        @ViewBag.FullName</a>
+                                    </li>
                                    <li>
-                                    <a asp-controller="account" asp-action="logout">Logout</a>
+                                    <a asp-controller="account" asp-action="logout">Logout
+                                        <i class="fa fa-sign-out"></i>
+                                    </a>
                                     @if (User.IsInRole("admin"))
                                     {
-                                    <a asp-area="adminarea" asp-controller="dashboard" asp-action="index">Admin</a>
+                                    <a asp-area="adminarea" asp-controller="dashboard" asp-action="index">
+                                            <i class="fa fa-cogs"></i>
+                                        Admin</a>
                                     }
                                    </li>
                                 }
                                 else
                                 {
                                     <li>
+                                    <i class="fa fa-user-o"></i>
                                     <a asp-controller="account" asp-action="login">Login</a>
                                     </li>
                                 <li><a asp-controller="account" asp-action="register">signup</a></li>
@@ -80,7 +89,7 @@
                                         </ul>
                                     </li>
                                     <li><a asp-controller ="contact" asp-action="index">Contact</a></li>
-                                    <li><a href="#">Buy Now</a>
+                                    <li><a asp-controller="BuyNow">Buy Now</a>
                                 </ul>
                             </nav>
                         </div>

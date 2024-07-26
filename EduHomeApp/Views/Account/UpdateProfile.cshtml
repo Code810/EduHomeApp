@@ -1,0 +1,62 @@
+﻿@model UserProfileUpdateVm
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Profile update form</h4>
+
+                    <form enctype="multipart/form-data" asp-action="UpdateProfile" class="forms-sample" method="post">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label asp-for="FullName"></label>
+                                <input asp-for="FullName" class="form-control" placeholder="FullName">
+                                <span class="text-danger" asp-validation-for="FullName"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="UserName"> </label>
+                                <input asp-for="UserName" class="form-control" placeholder="UserName">
+                                <span class="text-danger" asp-validation-for="UserName"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Email"> </label>
+                                <input asp-for="Email" class="form-control" placeholder="Email" disabled>
+                                <span class="text-danger" asp-validation-for="Email"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label asp-for="newPassword"> </label>
+                                <input asp-for="newPassword" class="form-control" placeholder="newPassword">
+                                <span class="text-danger" asp-validation-for="newPassword"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="newRePassword"> </label>
+                                <input asp-for="newRePassword" class="form-control" placeholder="newRePassword">
+                                <span class="text-danger" asp-validation-for="newRePassword"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label asp-for="Password"> </label>
+                                <input asp-for="Password" class="form-control" placeholder="Password">
+                                <span class="text-danger" asp-validation-for="Password"></span>
+                            </div>
+                            <div class="">
+                                <button type="submit" class="btn btn-primary me-2">Update</button>
+                                <a class="btn btn-secondary" asp-controller="home" asp-action="index">Cancel</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+
+}

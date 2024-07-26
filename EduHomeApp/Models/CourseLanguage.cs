@@ -6,6 +6,6 @@ namespace EduHomeApp.Models
     {
         [MaxLength(25)]
         public string Name { get; set; }
-        public IEnumerable<Course> Courses { get; set; }
+        public IEnumerable<Course>? Courses { get; set; }
     }
 }

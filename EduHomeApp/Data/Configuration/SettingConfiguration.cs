@@ -3,7 +3,7 @@ using EduHomeApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace FiorelloApp.Data.Configurations
+namespace EduHomeApp.Data.Configurations
 {
     public class SettingConfiguration : IEntityTypeConfiguration<Setting>
     {

@@ -75,6 +75,7 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
             }
             about.Title = aboutUpdateVm.Title;
             about.Description = aboutUpdateVm.Description;
+            about.UpdatedDate = DateTime.Now;
             await _dbContext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

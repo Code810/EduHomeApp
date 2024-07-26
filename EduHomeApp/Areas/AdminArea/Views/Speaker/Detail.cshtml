@@ -1,0 +1,20 @@
+﻿@model SpeakerIndexVm
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <img src="~/img/event/@Model.ImageUrl" alt="" />
+                    <h1 class="card-title my-4">@Model.FullName</h1>
+                    <p class="text-secondary my-4">@Model.Position</p>
+                    @foreach (var ev in Model.Events)
+                    {
+                        <p>@ev</p>
+                    }
+                    <a class="btn btn-dark my-4" asp-action="index">Go Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

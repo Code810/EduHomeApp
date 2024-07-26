@@ -71,7 +71,7 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
             await _dbContext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        public async Task<IActionResult> Update(int id)
+        public async Task<IActionResult> Update(int? id)
         {
             if (id == null) return BadRequest();
 

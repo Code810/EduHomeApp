@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+tKr1xs9wcbX28UUFBy66ZFFliMJU0/iBZVs3jzEZno=",
+  "Hash": "7TfEHeI+VlBmckk9VBYtQbdREI+5gfVD22ZLJJQ/vJU=",
   "Source": "EduHomeApp",
   "BasePath": "_content/EduHomeApp",
   "Mode": "Default",
@@ -6341,6 +6341,23 @@
       "OriginalItemSpec": "wwwroot\\img\\banner\\banner.jpg"
     },
     {
+      "Identity": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\blog\\22382636-86a4-457c-8442-1e237afdbd55.jpg",
+      "SourceId": "EduHomeApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\",
+      "BasePath": "_content/EduHomeApp",
+      "RelativePath": "img/blog/22382636-86a4-457c-8442-1e237afdbd55.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\blog\\22382636-86a4-457c-8442-1e237afdbd55.jpg"
+    },
+    {
       "Identity": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\blog\\6cc01ce1-7531-493a-8038-519d6102abde.png",
       "SourceId": "EduHomeApp",
       "SourceType": "Discovered",
@@ -6356,6 +6373,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\blog\\6cc01ce1-7531-493a-8038-519d6102abde.png"
+    },
+    {
+      "Identity": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\blog\\b452c626-c830-43d0-8c98-1462d87de5b3.jpg",
+      "SourceId": "EduHomeApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\",
+      "BasePath": "_content/EduHomeApp",
+      "RelativePath": "img/blog/b452c626-c830-43d0-8c98-1462d87de5b3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\blog\\b452c626-c830-43d0-8c98-1462d87de5b3.jpg"
     },
     {
       "Identity": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\blog\\blog2.jpg",
@@ -6613,23 +6647,6 @@
       "OriginalItemSpec": "wwwroot\\img\\contact\\contact3.png"
     },
     {
-      "Identity": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\course\\1596ab13-8885-4228-9cb1-84d0c8ae2b0f.png",
-      "SourceId": "EduHomeApp",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\",
-      "BasePath": "_content/EduHomeApp",
-      "RelativePath": "img/course/1596ab13-8885-4228-9cb1-84d0c8ae2b0f.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\course\\1596ab13-8885-4228-9cb1-84d0c8ae2b0f.png"
-    },
-    {
       "Identity": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\course\\507aaf91-db3b-42b7-899c-28ee4dbfb8a5.png",
       "SourceId": "EduHomeApp",
       "SourceType": "Discovered",
@@ -6849,6 +6866,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\course\\courses-details.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\event\\90da1032-f8fe-4d6b-9e82-cbfa26f4eec4.jpg",
+      "SourceId": "EduHomeApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\",
+      "BasePath": "_content/EduHomeApp",
+      "RelativePath": "img/event/90da1032-f8fe-4d6b-9e82-cbfa26f4eec4.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\event\\90da1032-f8fe-4d6b-9e82-cbfa26f4eec4.jpg"
     },
     {
       "Identity": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\event\\event1.jpg",

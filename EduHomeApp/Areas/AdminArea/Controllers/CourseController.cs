@@ -1,6 +1,7 @@
 ﻿using EduHomeApp.Areas.AdminArea.ViewModels;
 using EduHomeApp.Data;
 using EduHomeApp.Extensions;
+using EduHomeApp.Helpers;
 using EduHomeApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -93,7 +94,6 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
             newCourse.ClassDuration = courseCreateVm.ClassDuration;
             newCourse.SkillLevel = courseCreateVm.SkillLevel;
             newCourse.StudentCapacity = courseCreateVm.StudentCapacity;
-            newCourse.StudentCapacity = courseCreateVm.StudentCapacity;
             newCourse.Assesment = courseCreateVm.Assesment;
             newCourse.Price = courseCreateVm.Price;
             newCourse.Description = courseCreateVm.Description;
@@ -105,6 +105,7 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
             newCourse.TeacherId = courseCreateVm.TeacherId;
             newCourse.CourseLanguageId = courseCreateVm.CourseLanguageId;
             newCourse.CourseTags = new();
+            newCourse.CreatedDate = DateTime.Now;
             newCourse.CourseTags.AddRange(courseCreateVm.TagIds.Select(tagId => new CourseTag() { CourseId = newCourse.Id, TagId = tagId }));
             await _dbContext.Courses.AddAsync(newCourse);
             await _dbContext.SaveChangesAsync();
@@ -136,7 +137,6 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
             courseUpdateVm.ClassDuration = course.ClassDuration;
             courseUpdateVm.SkillLevel = course.SkillLevel;
             courseUpdateVm.StudentCapacity = course.StudentCapacity;
-            courseUpdateVm.StudentCapacity = course.StudentCapacity;
             courseUpdateVm.Assesment = course.Assesment;
             courseUpdateVm.Price = course.Price;
             courseUpdateVm.Description = course.Description;
@@ -151,16 +151,96 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
             return View(courseUpdateVm);
         }
 
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> Update(int? id, CourseUpdateVm courseUpdateVm)
+        {
+            ViewBag.Categories = new SelectList(await _dbContext.Categories.ToListAsync(), "Id", "Name");
+            ViewBag.Teachers = new SelectList(await _dbContext.Teachers.ToListAsync(), "Id", "FullName");
+            ViewBag.language = new SelectList(await _dbContext.CourseLanguages.ToListAsync(), "Id", "Name");
+            ViewBag.tags = new SelectList(await _dbContext.Tags.Where(t => !t.CourseTags.Any(t => t.CourseId == id)).ToListAsync(), "Id", "Name");
+            if (id == null) return BadRequest();
+            var course = await _dbContext.Courses
+               .Include(c => c.CourseLanguage)
+               .Include(c => c.Category)
+               .Include(c => c.Teacher)
+               .Include(c => c.CourseTags).ThenInclude(c => c.Tag)
+               .FirstOrDefaultAsync(p => p.Id == id);
+            if (course == null) return BadRequest();
+            courseUpdateVm.CourseTags = course.CourseTags;
+            courseUpdateVm.ImageUrl = course.ImageUrl;
+            if (!ModelState.IsValid) return View(courseUpdateVm);
+            var file = courseUpdateVm.Photo;
+            if (file != null)
+            {
+                if (!file.CheckContentType())
+                {
+                    ModelState.AddModelError("Photos", "Duzgun file secim edin");
+                    return View(courseUpdateVm);
+                }
+                if (file.CheckSize(500))
+                {
+                    ModelState.AddModelError("Photos", "faylin olcusu 300kb-dan az olmalidir");
+                    return View(courseUpdateVm);
+                }
+                Helper.DeleteImage("course", course.ImageUrl);
+                course.ImageUrl = await file.SaveFile("course");
+            }
+            course.Name = courseUpdateVm.Name;
+            course.Duration = courseUpdateVm.Duration;
+            course.ClassDuration = courseUpdateVm.ClassDuration;
+            course.SkillLevel = courseUpdateVm.SkillLevel;
+            course.StudentCapacity = courseUpdateVm.StudentCapacity;
+            course.Assesment = courseUpdateVm.Assesment;
+            course.Price = courseUpdateVm.Price;
+            course.Description = courseUpdateVm.Description;
+            course.About = courseUpdateVm.About;
+            course.Apply = courseUpdateVm.Apply;
+            course.Certfication = courseUpdateVm.Certfication;
+            course.StartDate = courseUpdateVm.StartDate;
+            course.CategoryId = courseUpdateVm.CategoryId;
+            course.TeacherId = courseUpdateVm.TeacherId;
+            course.UpdatedDate = DateTime.Now;
+            course.CourseLanguageId = courseUpdateVm.CourseLanguageId;
+            if (courseUpdateVm.TagIds != null)
+            {
+                course.CourseTags.AddRange(courseUpdateVm.TagIds.Select(tagId => new CourseTag() { CourseId = course.Id, TagId = tagId }));
+            }
+            await _dbContext.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+        [HttpDelete]
         public async Task<IActionResult> RemoveTags(int? courseId, int? tagId)
         {
             if (courseId == null || tagId == null) return BadRequest();
-            var course = await _dbContext.Courses
-                .FirstOrDefaultAsync(c => c.Id == courseId);
+            var course = await _dbContext.Courses.FirstOrDefaultAsync(c => c.Id == courseId);
             if (course == null) return BadRequest();
-            var coursetag = await _dbContext.CourseTags.FirstOrDefaultAsync(t => t.TagId == tagId && t.CourseId == courseId);
+            var coursetag = await _dbContext.CourseTags.FirstOrDefaultAsync(ct => ct.CourseId == courseId && ct.TagId == tagId);
+            if (coursetag == null) return BadRequest();
             _dbContext.CourseTags.Remove(coursetag);
             await _dbContext.SaveChangesAsync();
-            return PartialView("_tagPartialView", coursetag);
+            return PartialView("_tagPartialView", await _dbContext.Tags.FirstOrDefaultAsync(t => t.Id == tagId));
+
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int? id)
+        {
+
+            if (id == null) return BadRequest();
+
+            var course = await _dbContext.Courses.FirstOrDefaultAsync(p => p.Id == id);
+            if (course == null) return NotFound();
+
+            Helper.DeleteImage("course", course.ImageUrl);
+            _dbContext.Courses.Remove(course);
+            await _dbContext.SaveChangesAsync();
+            return Ok();
+        }
+
+
     }
+
+
 }

@@ -1,0 +1,16 @@
+﻿@model NoticeBoard
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title my-4">@Model.Description</h1>
+                    <p class="text-danger my-4">Created Date:@Model.CreatedDate.ToString("dd MMMM yyyy")</p>
+                    <p class="text-danger my-4">Updated Date:@Model.UpdatedDate?.ToString("dd MMMM yyyy")</p>
+                    <a class="btn btn-dark my-4" asp-action="index">Go Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
