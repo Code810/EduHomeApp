@@ -140,8 +140,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFJvbGVcVXBkYXRlVXNlclJvbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/seidb/OneDrive/Masaüstü/BackenProject/EduHomeApp/EduHomeApp/Areas/AdminArea/Views/Setting/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFNldHRpbmdcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/seidb/OneDrive/Masaüstü/BackenProject/EduHomeApp/EduHomeApp/Areas/AdminArea/Views/Setting/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFNldHRpbmdcRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/seidb/OneDrive/Masaüstü/BackenProject/EduHomeApp/EduHomeApp/Areas/AdminArea/Views/Setting/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFNldHRpbmdcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/seidb/OneDrive/Masaüstü/BackenProject/EduHomeApp/EduHomeApp/Areas/AdminArea/Views/Setting/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFNldHRpbmdcVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/seidb/OneDrive/Masaüstü/BackenProject/EduHomeApp/EduHomeApp/Areas/AdminArea/Views/Shared/Components/SettingAdminHeader/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFNoYXJlZFxDb21wb25lbnRzXFNldHRpbmdBZG1pbkhlYWRlclxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/seidb/OneDrive/Masaüstü/BackenProject/EduHomeApp/EduHomeApp/Areas/AdminArea/Views/Shared/_AdminLayout.cshtml]
@@ -204,12 +220,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFRhZ1xVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/seidb/OneDrive/Masaüstü/BackenProject/EduHomeApp/EduHomeApp/Areas/AdminArea/Views/User/CreateTeacher.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFVzZXJcQ3JlYXRlVGVhY2hlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/seidb/OneDrive/Masaüstü/BackenProject/EduHomeApp/EduHomeApp/Areas/AdminArea/Views/User/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFVzZXJcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/seidb/OneDrive/Masaüstü/BackenProject/EduHomeApp/EduHomeApp/Areas/AdminArea/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFVzZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/seidb/OneDrive/Masaüstü/BackenProject/EduHomeApp/EduHomeApp/Areas/AdminArea/Views/User/TeacherUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFVzZXJcVGVhY2hlclVwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/seidb/OneDrive/Masaüstü/BackenProject/EduHomeApp/EduHomeApp/Areas/AdminArea/Views/User/Update.cshtml]
@@ -294,6 +318,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/seidb/OneDrive/Masaüstü/BackenProject/EduHomeApp/EduHomeApp/Views/Shared/Components/SettingHeader/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2V0dGluZ0hlYWRlclxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/seidb/OneDrive/Masaüstü/BackenProject/EduHomeApp/EduHomeApp/Views/Shared/_messagePartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tZXNzYWdlUGFydGlhbFZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/seidb/OneDrive/Masaüstü/BackenProject/EduHomeApp/EduHomeApp/Views/Shared/_SearchPartialView.cshtml]

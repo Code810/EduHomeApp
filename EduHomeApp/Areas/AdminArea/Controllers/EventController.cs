@@ -3,6 +3,7 @@ using EduHomeApp.Data;
 using EduHomeApp.Extensions;
 using EduHomeApp.Helpers;
 using EduHomeApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,8 @@ using Microsoft.EntityFrameworkCore;
 namespace EduHomeApp.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
+    [Authorize(Roles = "admin, superadmin")]
+
     public class EventController : Controller
     {
         private readonly EduHomeDbContext _dbContext;

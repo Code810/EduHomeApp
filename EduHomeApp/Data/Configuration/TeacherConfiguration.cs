@@ -9,6 +9,7 @@ namespace EduHomeApp.Data.Configuration
         public void Configure(EntityTypeBuilder<Teacher> builder)
         {
             builder.Property(c => c.Experience).HasColumnType("decimal(18,2)");
+
         }
     }
 }

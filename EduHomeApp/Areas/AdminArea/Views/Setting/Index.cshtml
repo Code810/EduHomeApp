@@ -25,13 +25,13 @@
                                         @setting.Key
                                     </td>
                                     <td>@{
-                                            if (setting.Value.Contains(".png"))
+                                            if (setting.Value.Contains(".png") || setting.Value.Contains(".jpg"))
                                             {
                                                 <img src="~/img/logo/@setting.Value" alt="" />
                                             }
                                             else
                                             {
-                                                @setting.Value
+                                                @(setting.Value.Length>30?@setting.Value.Substring(0,30):@setting.Value)
                                             }
                                         }</td>
                                     <td>@setting.CreatedDate.ToString("dd.MM.yyyy")</td>
@@ -43,7 +43,7 @@
                                         <a class="text-succes pe-2 text-decoration-none" asp-action="update" asp-route-id="@setting.Id">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <a class="text-danger text-decoration-none delete-slider" slider-id="@setting.Id">
+                                        <a class="text-danger text-decoration-none delete-setting" setting-id="@setting.Id">
                                             <i class="fa fa-trash-o"></i>
                                         </a>
                                     </td>

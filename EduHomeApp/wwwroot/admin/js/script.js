@@ -303,10 +303,40 @@
         });
     });
 
+    //togle menyu setting page
+    $('#myTab a').on('click', function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
 
 
+    //Setting  delete start
 
+    $(".delete-setting").on("click", function (e) {
+        const btn = $(this);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't delete this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const settingId = btn.attr("setting-id");
 
+                $.ajax({
+                    url: `/adminarea/Setting/Delete/${settingId}`,
+                    method: "delete",
+                    success: function () {
+                        btn.parent().parent().remove();
+                    },
+
+                });
+            }
+        });
+    });
 
 
 

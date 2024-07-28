@@ -3,6 +3,7 @@ using EduHomeApp.Data;
 using EduHomeApp.Extensions;
 using EduHomeApp.Helpers;
 using EduHomeApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,8 @@ using Microsoft.EntityFrameworkCore;
 namespace EduHomeApp.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
+    [Authorize(Roles = "admin, superadmin")]
+
     public class CourseController : Controller
     {
         private readonly EduHomeDbContext _dbContext;
@@ -45,7 +48,7 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
                  .Include(c => c.Category)
                 .Include(c => c.Teacher)
                 .Include(c => c.CourseLanguage)
-                .Include(c => c.Students).ThenInclude(s => s.AppUser)
+                .Include(c => c.CourseStudents).ThenInclude(c => c.Student).ThenInclude(s => s.AppUser)
                 .FirstOrDefaultAsync(p => p.Id == id);
             if (course == null) return NotFound();
             return View(course);

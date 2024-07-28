@@ -55,12 +55,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var student in Model.Students)
+                        @foreach (var student in Model.CourseStudents)
                         {
                             <tr>
-                                <td>@student.AppUser.FullName</td>
-                                <td>@student.AppUser.UserName</td>
-                                <td>@student.AppUser.Email</td>
+                                <td>@student.Student.AppUser.FullName</td>
+                                <td>@student.Student.AppUser.UserName</td>
+                                <td>@student.Student.AppUser.Email</td>
                                
                             </tr>
                         }

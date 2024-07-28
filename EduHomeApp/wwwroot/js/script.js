@@ -52,7 +52,98 @@ $(function () {
 
     //course search js end
 
+    //message contact start
+    //$(".send-message").on("click", function (event) {
+    //    event.preventDefault();
 
+    //    const messageText = $("#message-text").val();
+    //    const messageSubject = $("#message-subject").val();
+    //    const messageEmail = $("#message-email").val();
+    //    const messageName = $("#message-name").val();
+
+    //    $.ajax({
+    //        url: "/Contact/SendMessage",
+    //        method: "POST",
+    //        data: { Email: messageEmail, FullName: messageName, Subject: messageSubject, MessageText: messageText },
+    //        success: function (e) {
+    //            Swal.fire({
+    //                icon: "success",
+    //                title: "THANK YOU",
+    //                timer: 1500
+    //            });
+    //            $("#ContactMessages").append(e)
+    //        },
+    //        error: function (xhr) {
+    //            Swal.fire({
+    //                icon: "error",
+    //                title: "Oops...",
+    //                text: xhr.responseText
+    //            });
+    //        }
+    //    });
+    //});
+
+    //--------------------------------------------------------------
+
+
+    $(".send-message").on("click", function (event) {
+        event.preventDefault();
+
+        const messageText = $("#message-text").val();
+        const messageSubject = $("#message-subject").val();
+        const messageEmail = $("#message-email").val();
+        const messageName = $("#message-name").val();
+
+        if (!messageEmail || !messageName || !messageSubject || !messageText) {
+            Swal.fire({
+                icon: "warning",
+                title: "Validation Error",
+                text: "Please fill out all fields."
+            });
+            return;
+        }
+
+        Swal.fire({
+            title: "Sending...",
+            text: "Please wait.",
+            allowOutsideClick: false,
+            onBeforeOpen: () => {
+                Swal.showLoading();
+            }
+        });
+
+        $.ajax({
+            url: "/Contact/SendMessage",
+            method: "POST",
+            data: { Email: messageEmail, FullName: messageName, Subject: messageSubject, MessageText: messageText },
+            success: function (response) {
+                Swal.close(); 
+
+                if (response.success === false) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: response.message || "An error occurred."
+                    });
+                    return;
+                }
+                $("#ContactMessages").append(response);
+                Swal.fire({
+                    icon: "success",
+                    title: "THANK YOU",
+                    timer: 1500
+                });
+            },
+            error: function (xhr) {
+                Swal.close();
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: xhr.responseText || "An error occurred."
+                });
+            }
+        });
+    });
 
 
 });

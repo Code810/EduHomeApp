@@ -28,6 +28,7 @@ namespace EduHomeApp.Data
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<TeacherContact> TeacherContacts { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

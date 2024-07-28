@@ -3,7 +3,7 @@ using EduHomeApp.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FiorelloApp.ViewComponents
+namespace EduHomeApp.ViewComponents
 {
     public class SettingHeaderViewComponent : ViewComponent
     {
@@ -21,6 +21,7 @@ namespace FiorelloApp.ViewComponents
             {
                 var user = await _userManager.FindByNameAsync(User.Identity.Name);
                 ViewBag.FullName = user.FullName;
+                ViewBag.Balans = user.Balans;
             }
 
             var settings = _context.Settings.ToDictionary(key => key.Key, value => value.Value);

@@ -215,9 +215,9 @@ namespace EduHomeApp.Controllers
             }
             user.UserName = userProfileUpdateVm.UserName;
             user.FullName = userProfileUpdateVm.FullName;
-            if (userProfileUpdateVm.newPassword != null && userProfileUpdateVm.newRePassword != null && userProfileUpdateVm.newPassword.Contains(userProfileUpdateVm.newRePassword))
+            if (userProfileUpdateVm.NewPassword != null && userProfileUpdateVm.NewRePassword != null)
             {
-                await _userManager.ChangePasswordAsync(user, userProfileUpdateVm.Password, userProfileUpdateVm.newRePassword);
+                await _userManager.ChangePasswordAsync(user, userProfileUpdateVm.Password, userProfileUpdateVm.NewRePassword);
             }
             await _userManager.UpdateAsync(user);
             await _signInManager.SignOutAsync();

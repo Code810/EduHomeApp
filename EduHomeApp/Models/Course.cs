@@ -20,8 +20,7 @@
         public string Apply { get; set; }
         public string Certfication { get; set; }
         public List<CourseTag> CourseTags { get; set; }
-        public IEnumerable<Student> Students { get; set; }
-
+        public List<CourseStudent> CourseStudents { get; set; }
         public int? TeacherId { get; set; }
         public Teacher Teacher { get; set; }
 

@@ -9,8 +9,10 @@ namespace EduHomeApp.ViewModels
         [EmailAddress]
         [DataType(DataType.EmailAddress)]
         public string? Email { get; set; }
-        public string? newPassword { get; set; }
-        public string? newRePassword { get; set; }
+        [DataType(DataType.Password)]
+        public string? NewPassword { get; set; }
+        [DataType(DataType.Password), Compare(nameof(NewPassword))]
+        public string? NewRePassword { get; set; }
         public string Password { get; set; }
 
 

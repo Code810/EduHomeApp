@@ -34,7 +34,8 @@
                         </div>
                         <div class="course-content">
                             <p>@(course.Description.Length > 100 ? course.Description.Substring(0, 100) : course.Description)</p>
-                            <a class="btn btn-success" asp-action="detail" asp-route-id="@course.Id">Buy</a>
+                            <label class="btn btn-danger" >@course.Price $</label>
+                            <a class="btn btn-success" asp-action="BuyCourse" asp-route-id="@course.Id">Buy</a>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,123 @@
+﻿@model TeacherCreateVm
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Category Create form</h4>
+                    <form enctype="multipart/form-data" asp-action="CreateTeacher" class="forms-sample" style="display:flex;
+                      flex-wrap:wrap; justify-content:space-around" method="post">
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Position"></label>
+                            <input asp-for="Position" class="form-control" placeholder="Position">
+                            <span class="text-danger" asp-validation-for="Position"></span>
+                        </div>
+
+                        <div class="form-group col-lg-5">
+                            <label asp-for="About"> </label>
+                            <input asp-for="About" class="form-control" placeholder="About">
+                            <span class="text-danger" asp-validation-for="About"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Degree"> </label>
+                            <input asp-for="Degree" class="form-control" placeholder="Degree">
+                            <span class="text-danger" asp-validation-for="Degree"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Experience"> </label>
+                            <input asp-for="Experience" class="form-control" placeholder="Experience">
+                            <span class="text-danger" asp-validation-for="Experience"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Hobbies"> </label>
+                            <input asp-for="Hobbies" class="form-control" placeholder="Hobbies">
+                            <span class="text-danger" asp-validation-for="Hobbies"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Faculty"> </label>
+                            <input asp-for="Faculty" class="form-control" placeholder="Faculty">
+                            <span class="text-danger" asp-validation-for="Faculty"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Language"> </label>
+                            <input asp-for="Language" class="form-control" placeholder="Language">
+                            <span class="text-danger" asp-validation-for="Language"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="TeamLeader"> </label>
+                            <input asp-for="TeamLeader" class="form-control" placeholder="TeamLeader">
+                            <span class="text-danger" asp-validation-for="TeamLeader"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Development"> </label>
+                            <input asp-for="Development" class="form-control" placeholder="Development">
+                            <span class="text-danger" asp-validation-for="Development"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Design"> </label>
+                            <input asp-for="Design" class="form-control" placeholder="Design">
+                            <span class="text-danger" asp-validation-for="Design"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Innovation"> </label>
+                            <input asp-for="Innovation" class="form-control" placeholder="Innovation">
+                            <span class="text-danger" asp-validation-for="Innovation"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Communication"> </label>
+                            <input asp-for="Communication" class="form-control" placeholder="Communication">
+                            <span class="text-danger" asp-validation-for="Communication"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="PhoneNumber"> </label>
+                            <input asp-for="PhoneNumber" class="form-control" placeholder="PhoneNumber">
+                            <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Skype"> </label>
+                            <input asp-for="Skype" class="form-control" placeholder="Skype">
+                            <span class="text-danger" asp-validation-for="Skype"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Facebook"> </label>
+                            <input asp-for="Facebook" class="form-control" placeholder="Facebook">
+                            <span class="text-danger" asp-validation-for="Facebook"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Instagram"> </label>
+                            <input asp-for="Instagram" class="form-control" placeholder="Instagram">
+                            <span class="text-danger" asp-validation-for="Instagram"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Pinteres"> </label>
+                            <input asp-for="Pinteres" class="form-control" placeholder="Pinteres">
+                            <span class="text-danger" asp-validation-for="Pinteres"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Twitter"> </label>
+                            <input asp-for="Twitter" class="form-control" placeholder="Twitter">
+                            <span class="text-danger" asp-validation-for="Twitter"></span>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <label asp-for="Photo"> </label>
+                            <input asp-for="Photo" class="form-control" placeholder="Description">
+                            <span class="text-danger" asp-validation-for="Photo"></span>
+                        </div>
+                        <div class="col-lg-5"></div>
+                        <div>
+                            <button type="submit" class="btn btn-gradient-primary me-2">Create</button>
+                            <a class="btn btn-light" asp-action="index">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+
+}

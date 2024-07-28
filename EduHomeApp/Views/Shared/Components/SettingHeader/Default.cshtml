@@ -2,14 +2,14 @@
 
 <header class="top">
     <div class="header-top">
-        <div class="container">
+        <div class="container" style="width:1475px !important;">
             <div class="row">
-                <div class="col-md-8 col-sm-8 col-xs-12">
+                <div class="col-lg-7 col-md-8 col-sm-8 col-xs-12">
                     <div class="header-top-left">
                         <p>HAVE ANY QUESTION ?  +880 5698  598  6587</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="col-lg-5 col-md-4 col-sm-4 col-xs-12">
                     <div class="header-top-right text-right">
                         <ul>
                                 @if (User.Identity.IsAuthenticated)
@@ -19,16 +19,27 @@
                                         <i class="fa fa-user-o"></i>
                                         @ViewBag.FullName</a>
                                     </li>
-                                   <li>
-                                    <a asp-controller="account" asp-action="logout">Logout
-                                        <i class="fa fa-sign-out"></i>
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-money"></i>
+                                        @ViewBag.Balans$
                                     </a>
-                                    @if (User.IsInRole("admin"))
+                                </li>
+                                  
+                                    @if (User.IsInRole("admin") || User.IsInRole("superadmin"))
                                     {
-                                    <a asp-area="adminarea" asp-controller="dashboard" asp-action="index">
-                                            <i class="fa fa-cogs"></i>
-                                        Admin</a>
+                                   <li>
+                                        <a asp-area="adminarea" asp-controller="dashboard" asp-action="index">
+                                            <i class="fa fa-cogs"></i>admin
+                                        </a>
+                                   </li>
                                     }
+
+                                <li>
+                                    <a asp-controller="account" asp-action="logout">
+                                        <i class="fa fa-sign-out"></i>
+                                        logout
+                                    </a>
                                    </li>
                                 }
                                 else
@@ -89,7 +100,7 @@
                                         </ul>
                                     </li>
                                     <li><a asp-controller ="contact" asp-action="index">Contact</a></li>
-                                    <li><a asp-controller="BuyNow">Buy Now</a>
+                                    <li><a asp-controller="BuyNow" asp-action="index">Buy Now</a>
                                 </ul>
                             </nav>
                         </div>

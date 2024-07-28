@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-md-5 col-sm-5 col-xs-10">
                         <div class="teacher-details-img">
-                            <img src="~/img/teacher/@Model.Teacher.ImageUrl" alt="teacher">
+                            <img src="~/img/teacher/@Model.Teacher.ImageUrl" alt="teacher" style="width:400px; height:400px;">
                         </div>
                     </div>
                     <div class="col-md-7 col-sm-7 col-xs-12">
@@ -123,43 +123,17 @@
 @if (Model.Student != null)
 {
                  <h1>STUDENT COURSE DETAIL</h1>
-                 <div class="courses-details">
-                    <div class="courses-details-img">
-                        <img src="~/img/course/@Model.Student.Course.ImageUrl" alt="courses-details">
-                    </div>
-                    <div class="course-details-content">
-                      <h2>@Model.Student.Course.Name</h2>
-                     <p>@Model.Student.Course.Description </p>
-                        <div class="course-details-left">
-                            <div class="single-course-left">
-                                <h3>about course</h3>
-                    <p>@Model.Student.Course.About</p>
-                            </div>
-                            <div class="single-course-left">
-                                <h3>how to apply</h3>
-                    <p>@Model.Student.Course.Apply</p>
-                            </div>
-                            <div class="single-course-left">
-                                <h3>certification</h3>
-                    <p class="single-course-left"> @Model.Student.Course.Certfication</p>
-                                
-                            </div>
-                        </div>
-                        <div class="course-details-right">
-                            <h3>COURSE FEATURES</h3>
-                            <ul>
-                    <li>Category <span>@Model.Student.Course.Category</span></li>
-                    <li>starts <span>@Model.Student.Course.StartDate.ToString("dd MMMM yyyy")</span></li>
-                    <li>duration <span>@Model.Student.Course.Duration Month</span></li>
-                    <li>class duration <span>@Model.Student.Course.ClassDuration hours</span></li>
-                    <li>skill level <span>@Model.Student.Course.SkillLevel</span></li>
-                    <li>language <span>@Model.Student.Course.CourseLanguage</span></li>
-                    <li>students <span>@Model.Student.Course.StudentCapacity</span></li>
-                    <li>assesments <span>@Model.Student.Course.Assesment</span></li>
-                            </ul>
-                            <h3 class="red">course fee $@Model.Student.Course.Price</h3>
-                        </div>
+                 @foreach (var item in Model.Student.CourseStudents)
+    {
+        <div class="courses-details">
+            <div class="courses-details-img">
+                <img src="~/img/course/@item.Course.ImageUrl" alt="courses-details">
+            </div>
+            <div class="course-details-content">
+                <h2>@item.Course.Name</h2>
+                <p>@item.Course.Description </p>
+            </div>
         </div>
-    </div>
+    }
 }
 <a class="btn btn-dark my-4" asp-action="index">Go Back</a>

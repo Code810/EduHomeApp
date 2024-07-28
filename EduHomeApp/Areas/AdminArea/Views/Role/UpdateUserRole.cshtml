@@ -13,8 +13,7 @@
                         {
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                    <input @(role.Name == "student" || role.Name == "teacher" ? "disabled" : "")
-                                            name="newRoles" @(Model.UserRoles.Contains(role.Name) ?"checked":"")
+                                    <input  name="newRoles" @(Model.UserRoles.Contains(role.Name) ?"checked":"")
                                             type="checkbox" value="@role.Name" class="form-check-input">@role.Name
                                     </label>
                                 </div>

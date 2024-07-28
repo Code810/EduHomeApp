@@ -2,6 +2,7 @@
 
 using EduHomeApp.Areas.AdminArea.ViewModels;
 using EduHomeApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 namespace EduHomeApp.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
+    [Authorize(Roles = "admin, superadmin")]
+
     public class RoleController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;

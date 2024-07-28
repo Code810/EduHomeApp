@@ -1,0 +1,50 @@
+﻿@model SettingUpdateVm
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Slider update form</h4>
+                    @if (Model.ImageUrl!=null)
+                    {
+                        <img src="~/img/logo/@Model.ImageUrl" style="margin-bottom:20px; width:100%;" />
+                    }
+
+                    <form enctype="multipart/form-data" asp-action="update" class="forms-sample" method="post">
+                        <div class="form-group">
+                            <label asp-for="Key"></label>
+                            <input asp-for="Key" class="form-control" placeholder="Key">
+                            <span class="text-danger" asp-validation-for="Key"></span>
+                        </div>
+                        @if (Model.Value!=null)
+                        {
+                            <div class="form-group">
+                                <label asp-for="Value"></label>
+                                <textarea asp-for="Value" class="form-control" placeholder="Value" rows="8"></textarea>
+                                <span class="text-danger" asp-validation-for="Value"></span>
+                            </div>
+                        }
+                        @if (Model.ImageUrl != null)
+                        {
+                            <div class="form-group">
+                                <label asp-for="Photo"> </label>
+                                <input asp-for="Photo" class="form-control" placeholder="Photo">
+                                <span class="text-danger" asp-validation-for="Photo"></span>
+                            </div>
+                        }
+                       
+                        <button type="submit" class="btn btn-gradient-primary me-2">Update</button>
+                        <a class="btn btn-light" asp-action="index">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+
+}
+

@@ -1697,6 +1697,10 @@
       "PackagePath": "staticwebassets\\img\\icon\\section1.png"
     },
     {
+      "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\logo\\ac200c15-0232-4723-a27e-f149fbbecaf3.jpg",
+      "PackagePath": "staticwebassets\\img\\logo\\ac200c15-0232-4723-a27e-f149fbbecaf3.jpg"
+    },
+    {
       "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\logo\\footer-logo.png",
       "PackagePath": "staticwebassets\\img\\logo\\footer-logo.png"
     },
@@ -1725,6 +1729,10 @@
       "PackagePath": "staticwebassets\\img\\post\\post3.jpg"
     },
     {
+      "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\slider\\6ae630ac-f3c0-407a-813b-10ab7d1b5f32.jpg",
+      "PackagePath": "staticwebassets\\img\\slider\\6ae630ac-f3c0-407a-813b-10ab7d1b5f32.jpg"
+    },
+    {
       "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\slider\\home.png",
       "PackagePath": "staticwebassets\\img\\slider\\home.png"
     },
@@ -1739,6 +1747,18 @@
     {
       "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\slider\\slider3.jpg",
       "PackagePath": "staticwebassets\\img\\slider\\slider3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\teacher\\282607ca-3423-4cab-b08d-0bceab53c9fa.jpg",
+      "PackagePath": "staticwebassets\\img\\teacher\\282607ca-3423-4cab-b08d-0bceab53c9fa.jpg"
+    },
+    {
+      "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\teacher\\c2985287-af2c-47b1-b5d7-388367c88622.jpg",
+      "PackagePath": "staticwebassets\\img\\teacher\\c2985287-af2c-47b1-b5d7-388367c88622.jpg"
+    },
+    {
+      "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\teacher\\ef5f6d7a-8892-4694-b036-0b2854a782e8.jpg",
+      "PackagePath": "staticwebassets\\img\\teacher\\ef5f6d7a-8892-4694-b036-0b2854a782e8.jpg"
     },
     {
       "Id": "C:\\Users\\seidb\\OneDrive\\Masaüstü\\BackenProject\\EduHomeApp\\EduHomeApp\\wwwroot\\img\\teacher\\teacher-details.jpg",

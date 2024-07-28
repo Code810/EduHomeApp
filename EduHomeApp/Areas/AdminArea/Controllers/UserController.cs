@@ -1,6 +1,9 @@
 ﻿using EduHomeApp.Areas.AdminArea.ViewModels;
 using EduHomeApp.Data;
+using EduHomeApp.Extensions;
+using EduHomeApp.Helpers;
 using EduHomeApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +11,8 @@ using Microsoft.EntityFrameworkCore;
 namespace EduHomeApp.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
+    [Authorize(Roles = "admin, superadmin")]
+
     public class UserController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -73,13 +78,13 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
             var user = await _userManager.Users
                 .Include(u => u.Teacher).ThenInclude(t => t.TeacherContact)
                 .Include(u => u.Student)
-                .ThenInclude(u => u.Course)
+                .ThenInclude(u => u.CourseStudents).ThenInclude(c => c.Course)
                 .FirstOrDefaultAsync(u => u.Id == id);
             if (user == null) return NotFound();
             return View(user);
         }
 
-        public async Task<IActionResult> Update(string id)
+        public async Task<IActionResult> Update(string? id)
         {
             if (id == null) return BadRequest();
 
@@ -95,18 +100,15 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
             userUpdateVm.UserName = user.UserName;
             if (user.Teacher != null)
             {
-                userUpdateVm.Relation = "teacherUpdate";
-            }
-            if (user.Student != null)
-            {
-                userUpdateVm.Relation = "studentUpdate";
+                userUpdateVm.TeacherId = user.Teacher.Id;
+                userUpdateVm.Relation = "TeacherUpdate";
             }
             return View(userUpdateVm);
         }
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> Update(string id, UserUpdateVm userUpdateVm)
+        public async Task<IActionResult> Update(string? id, UserUpdateVm userUpdateVm)
         {
             if (id == null) return BadRequest();
 
@@ -175,6 +177,161 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
             //}
 
             return Ok();
+        }
+
+
+        public async Task<IActionResult> CreateTeacher(string? id)
+        {
+            return View();
+        }
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> CreateTeacher(string? id, TeacherCreateVm teacherCreateVm)
+        {
+            if (id == null) return BadRequest();
+            if (!ModelState.IsValid) return View();
+            var user = await _context.Users.Include(u => u.Teacher).Include(u => u.Student).FirstOrDefaultAsync(u => u.Id == id);
+            if (user == null) return BadRequest();
+            if (user.Teacher != null && user.Student != null) return BadRequest();
+            var file = teacherCreateVm.Photo;
+            if (file == null)
+            {
+                ModelState.AddModelError("Photo", "Shekil bos ola bilmez");
+                return View(teacherCreateVm);
+            }
+            if (!file.CheckContentType())
+            {
+                ModelState.AddModelError("Photos", "Duzgun file secim edin");
+                return View(teacherCreateVm);
+            }
+            if (file.CheckSize(500))
+            {
+                ModelState.AddModelError("Photos", "faylin olcusu 300kb-dan az olmalidir");
+                return View(teacherCreateVm);
+            }
+
+
+
+            Teacher teacher = new()
+            {
+                FullName = user.FullName,
+                Position = teacherCreateVm.Position,
+                About = teacherCreateVm.About,
+                Degree = teacherCreateVm.Degree,
+                Experience = teacherCreateVm.Experience,
+                Hobbies = teacherCreateVm.Hobbies,
+                Faculty = teacherCreateVm.Faculty,
+                AppUserId = id,
+                Language = teacherCreateVm.Language,
+                TeamLeader = teacherCreateVm.TeamLeader,
+                Development = teacherCreateVm.Development,
+                Design = teacherCreateVm.Design,
+                Innovation = teacherCreateVm.Innovation,
+                Communication = teacherCreateVm.Communication,
+                ImageUrl = await file.SaveFile("teacher"),
+            };
+
+            TeacherContact teacherContact = new();
+            teacherContact.Email = user.Email;
+            teacherContact.PhoneNumber = teacherCreateVm.PhoneNumber;
+            teacherContact.Skype = teacherCreateVm.Skype;
+            teacherContact.Facebook = teacherCreateVm.Facebook;
+            teacherContact.Instagram = teacherCreateVm.Instagram;
+            teacherContact.Pinteres = teacherCreateVm.Pinteres;
+            teacherContact.Twitter = teacherCreateVm.Twitter;
+            teacherContact.Teacher = teacher;
+
+            await _userManager.AddToRoleAsync(user, "teacher");
+            _context.Teachers.Add(teacher);
+            _context.TeacherContacts.Add(teacherContact);
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
+
+
+        public async Task<IActionResult> TeacherUpdate(int id)
+        {
+            if (id == null) return BadRequest();
+
+            var teacher = await _context.Teachers
+                .Include(u => u.TeacherContact)
+                 .FirstOrDefaultAsync(u => u.Id == id);
+            if (teacher == null) return NotFound();
+            TeacherUpdateVm teacherVm = new()
+            {
+                Position = teacher.Position,
+                About = teacher.About,
+                Degree = teacher.Degree,
+                Experience = teacher.Experience,
+                Hobbies = teacher.Hobbies,
+                Faculty = teacher.Faculty,
+                Language = teacher.Language,
+                TeamLeader = teacher.TeamLeader,
+                Development = teacher.Development,
+                Design = teacher.Design,
+                Innovation = teacher.Innovation,
+                Communication = teacher.Communication,
+                ImageUrl = teacher.ImageUrl,
+                PhoneNumber = teacher.TeacherContact.PhoneNumber,
+                Skype = teacher.TeacherContact.Skype,
+                Facebook = teacher.TeacherContact.Facebook,
+                Instagram = teacher.TeacherContact.Instagram,
+                Pinteres = teacher.TeacherContact.Pinteres,
+                Twitter = teacher.TeacherContact.Twitter,
+            };
+
+
+            return View(teacherVm);
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> TeacherUpdate(int? id, TeacherUpdateVm teacherUpdateVm)
+        {
+            if (id == null) return BadRequest();
+
+            var teacher = await _context.Teachers.Include(t => t.TeacherContact).FirstOrDefaultAsync(t => t.Id == id);
+            if (teacher == null) return NotFound();
+            teacherUpdateVm.ImageUrl = teacher.ImageUrl;
+            if (!ModelState.IsValid) return View(teacherUpdateVm);
+            var file = teacherUpdateVm.Photo;
+            if (file != null)
+            {
+                if (!file.CheckContentType())
+                {
+                    ModelState.AddModelError("Photos", "Duzgun file secim edin");
+                    return View(teacherUpdateVm);
+                }
+                if (file.CheckSize(500))
+                {
+                    ModelState.AddModelError("Photos", "faylin olcusu 300kb-dan az olmalidir");
+                    return View(teacherUpdateVm);
+                }
+                Helper.DeleteImage("teacher", teacher.ImageUrl);
+                teacher.ImageUrl = await file.SaveFile("teacher");
+            }
+            teacher.Position = teacherUpdateVm.Position;
+            teacher.About = teacherUpdateVm.About;
+            teacher.Degree = teacherUpdateVm.Degree;
+            teacher.Experience = teacherUpdateVm.Experience;
+            teacher.Hobbies = teacherUpdateVm.Hobbies;
+            teacher.Faculty = teacherUpdateVm.Faculty;
+            teacher.Language = teacherUpdateVm.Language;
+            teacher.TeamLeader = teacherUpdateVm.TeamLeader;
+            teacher.Development = teacherUpdateVm.Development;
+            teacher.Design = teacherUpdateVm.Design;
+            teacher.Innovation = teacherUpdateVm.Innovation;
+            teacher.Communication = teacherUpdateVm.Communication;
+            teacher.TeacherContact.PhoneNumber = teacherUpdateVm.PhoneNumber;
+            teacher.TeacherContact.Skype = teacherUpdateVm.Skype;
+            teacher.TeacherContact.Facebook = teacherUpdateVm.Facebook;
+            teacher.TeacherContact.Instagram = teacherUpdateVm.Instagram;
+            teacher.TeacherContact.Pinteres = teacherUpdateVm.Pinteres;
+            teacher.TeacherContact.Twitter = teacherUpdateVm.Twitter;
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
         }
     }
 

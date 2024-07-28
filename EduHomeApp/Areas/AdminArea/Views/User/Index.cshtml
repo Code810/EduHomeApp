@@ -12,6 +12,7 @@
                                 <td>Fullname</td>
                                 <th> Username </th>
                                 <th> Email</th>
+                                <th> Position</th>
                                 <th> Blocked</th>
                                 <th> Settings</th>
                             </tr>
@@ -44,6 +45,20 @@
                                     <td>@user.FullName</td>
                                     <td>@user.UserName</td>
                                     <td>@user.Email</td>
+                                    <td>
+                                        @if (user.Teacher!=null)
+                                        {
+                                            <label class="badge badge-warning">Teacher</label>
+                                        }
+                                        @if (user.Student!=null)
+                                        {
+                                            <label class="badge badge-success">Student</label>
+                                        }
+                                        @if(user.Teacher==null&&user.Student==null)
+                                        {
+                                            <label class="badge badge-danger">User</label>
+                                        }
+                                    </td>
                                     @if (user.IsBlocked)
                                     {
                                         <td class="text-danger">Blocked</td>
@@ -54,6 +69,17 @@
                                         <td class="text-success">Active</td>
 
                                     }
+                                    <td>
+                                        @if (user.Teacher == null && user.Student == null)
+                                        {
+                                            <a asp-action="CreateTeacher" asp-route-id="@user.Id">
+                                                <button type="button" class="btn btn-outline-warning btn-icon-text">
+                                                    <i class="mdi mdi-reload btn-icon-prepend"></i> Teacher
+                                                </button>
+                                            </a>
+                                        }
+
+                                    </td>
                                     <td>
                                         @if (User.Identity.Name != user.UserName)
                                         {
@@ -82,6 +108,7 @@
                                             <i class="fa fa-check "></i>
                                         </a>
                                     </td>
+                                    
                                 </tr>
                             }
 

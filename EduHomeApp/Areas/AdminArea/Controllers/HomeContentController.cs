@@ -1,11 +1,14 @@
 ﻿using EduHomeApp.Areas.AdminArea.ViewModels;
 using EduHomeApp.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace EduHomeApp.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
+    [Authorize(Roles = "admin, superadmin")]
+
     public class HomeContentController : Controller
     {
         private readonly EduHomeDbContext _dbContext;

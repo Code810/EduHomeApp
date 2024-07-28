@@ -64,6 +64,9 @@ namespace EduHomeApp.Data.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<decimal?>("Balans")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -313,6 +316,38 @@ namespace EduHomeApp.Data.Migrations
                     b.ToTable("CourseLanguages");
                 });
 
+            modelBuilder.Entity("EduHomeApp.Models.CourseStudent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("StudentId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("CourseStudent");
+                });
+
             modelBuilder.Entity("EduHomeApp.Models.CourseTag", b =>
                 {
                     b.Property<int>("Id")
@@ -448,6 +483,45 @@ namespace EduHomeApp.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("HomeContents");
+                });
+
+            modelBuilder.Entity("EduHomeApp.Models.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MessageText")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("EduHomeApp.Models.NoticeBoard", b =>
@@ -591,9 +665,6 @@ namespace EduHomeApp.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -607,8 +678,6 @@ namespace EduHomeApp.Data.Migrations
 
                     b.HasIndex("AppUserId")
                         .IsUnique();
-
-                    b.HasIndex("CourseId");
 
                     b.ToTable("Students");
                 });
@@ -975,6 +1044,25 @@ namespace EduHomeApp.Data.Migrations
                     b.Navigation("Teacher");
                 });
 
+            modelBuilder.Entity("EduHomeApp.Models.CourseStudent", b =>
+                {
+                    b.HasOne("EduHomeApp.Models.Course", "Course")
+                        .WithMany("CourseStudents")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EduHomeApp.Models.Student", "Student")
+                        .WithMany("CourseStudents")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Student");
+                });
+
             modelBuilder.Entity("EduHomeApp.Models.CourseTag", b =>
                 {
                     b.HasOne("EduHomeApp.Models.Course", "Course")
@@ -1013,6 +1101,17 @@ namespace EduHomeApp.Data.Migrations
                     b.Navigation("Speaker");
                 });
 
+            modelBuilder.Entity("EduHomeApp.Models.Message", b =>
+                {
+                    b.HasOne("EduHomeApp.Models.AppUser", "AppUser")
+                        .WithMany("Messages")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+                });
+
             modelBuilder.Entity("EduHomeApp.Models.Student", b =>
                 {
                     b.HasOne("EduHomeApp.Models.AppUser", "AppUser")
@@ -1021,15 +1120,7 @@ namespace EduHomeApp.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EduHomeApp.Models.Course", "Course")
-                        .WithMany("Students")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("AppUser");
-
-                    b.Navigation("Course");
                 });
 
             modelBuilder.Entity("EduHomeApp.Models.Teacher", b =>
@@ -1107,6 +1198,8 @@ namespace EduHomeApp.Data.Migrations
                 {
                     b.Navigation("Blogs");
 
+                    b.Navigation("Messages");
+
                     b.Navigation("Student");
 
                     b.Navigation("Teacher");
@@ -1119,9 +1212,9 @@ namespace EduHomeApp.Data.Migrations
 
             modelBuilder.Entity("EduHomeApp.Models.Course", b =>
                 {
-                    b.Navigation("CourseTags");
+                    b.Navigation("CourseStudents");
 
-                    b.Navigation("Students");
+                    b.Navigation("CourseTags");
                 });
 
             modelBuilder.Entity("EduHomeApp.Models.CourseLanguage", b =>
@@ -1137,6 +1230,11 @@ namespace EduHomeApp.Data.Migrations
             modelBuilder.Entity("EduHomeApp.Models.Speaker", b =>
                 {
                     b.Navigation("EventSpeakers");
+                });
+
+            modelBuilder.Entity("EduHomeApp.Models.Student", b =>
+                {
+                    b.Navigation("CourseStudents");
                 });
 
             modelBuilder.Entity("EduHomeApp.Models.Tag", b =>

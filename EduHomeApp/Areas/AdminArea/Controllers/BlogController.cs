@@ -4,6 +4,7 @@ using EduHomeApp.Extensions;
 using EduHomeApp.Helpers;
 using EduHomeApp.Models;
 using EduHomeApp.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
@@ -11,6 +12,7 @@ using System.Security.Claims;
 namespace EduHomeApp.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
+    [Authorize(Roles = "admin, superadmin")]
     public class BlogController : Controller
     {
         private readonly EduHomeDbContext _dbContext;
