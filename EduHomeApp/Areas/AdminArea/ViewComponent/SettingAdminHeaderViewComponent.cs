@@ -21,7 +21,7 @@ namespace EduHomeApp.Areas.AdminArea
         public async Task<IViewComponentResult> InvokeAsync()
         {
 
-            var message = await _context.Messages.Include(m => m.AppUser).ToListAsync();
+            var message = await _context.Messages.Include(m => m.AppUser).Where(m => !m.IsRead).ToListAsync();
             return View(await Task.FromResult(message));
         }
     }

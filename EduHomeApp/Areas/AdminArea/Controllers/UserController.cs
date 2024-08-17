@@ -107,7 +107,6 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
         }
 
         [HttpPost]
-        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Update(string? id, UserUpdateVm userUpdateVm)
         {
             if (id == null) return BadRequest();

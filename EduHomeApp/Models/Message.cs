@@ -7,6 +7,7 @@
         public string MessageText { get; set; }
         public string AppUserId { get; set; }
         public AppUser AppUser { get; set; }
+        public bool IsDelete { get; set; }
 
     }
 }

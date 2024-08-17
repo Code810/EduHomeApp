@@ -1,9 +1,6 @@
 ﻿@model CourseUpdateVm
 @{
-    var categories = ViewBag.Categories;
-    var teachers = ViewBag.Teachers;
-    var language = ViewBag.language;
-    var tags = ViewBag.tags;
+    GetAllDatasVm datas = ViewBag.Datas;
 }
 <div class="container">
     <div class="row">
@@ -78,17 +75,17 @@
                         </div>
                         <div class="form-group col-lg-5">
                             <label for="exampleFormControlSelect1">Large select</label>
-                            <select class="form-select form-select-lg" asp-for="CategoryId" asp-items="@categories">
+                            <select class="form-select form-select-lg" asp-for="CategoryId" asp-items="@datas.Categories">
                             </select>
                         </div>
                         <div class="form-group col-lg-5">
                             <label for="exampleFormControlSelect1">Large select</label>
-                            <select class="form-select form-select-lg" asp-for="TeacherId" asp-items="@teachers">
+                            <select class="form-select form-select-lg" asp-for="TeacherId" asp-items="@datas.Teachers">
                             </select>
                         </div>
                         <div class="form-group col-lg-5">
                             <label for="exampleFormControlSelect1">Large select</label>
-                            <select class="form-select form-select-lg" asp-for="CourseLanguageId" asp-items="@language">
+                            <select class="form-select form-select-lg" asp-for="CourseLanguageId" asp-items="@datas.CourseLanguages">
                             </select>
                         </div>
                         <div class="form-group col-lg-5">
@@ -108,7 +105,7 @@
                         </div>
                         <div class="form-group col-lg-5">
                             <label for="exampleFormControlSelect1">Large select</label>
-                            <select class="form-select form-select-lg tags" asp-for="TagIds" asp-items="@tags">
+                            <select class="form-select form-select-lg tags" asp-for="TagIds" asp-items="@datas.Tags">
                             </select>
                         </div>
                        

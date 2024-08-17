@@ -56,21 +56,16 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
 
         public async Task<IActionResult> Create()
         {
-            ViewBag.Categories = new SelectList(await _dbContext.Categories.ToListAsync(), "Id", "Name");
-            ViewBag.Teachers = new SelectList(await _dbContext.Teachers.ToListAsync(), "Id", "FullName");
-            ViewBag.language = new SelectList(await _dbContext.CourseLanguages.ToListAsync(), "Id", "Name");
-            ViewBag.tags = new SelectList(await _dbContext.Tags.ToListAsync(), "Id", "Name");
-
+            var datas = await getAllDatas();
+            ViewBag.Datas = datas;
             return View();
         }
         [HttpPost]
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Create(CourseCreateVm courseCreateVm)
         {
-            ViewBag.Categories = new SelectList(await _dbContext.Categories.ToListAsync(), "Id", "Name");
-            ViewBag.Teachers = new SelectList(await _dbContext.Teachers.ToListAsync(), "Id", "FullName");
-            ViewBag.language = new SelectList(await _dbContext.CourseLanguages.ToListAsync(), "Id", "Name");
-            ViewBag.tags = new SelectList(await _dbContext.Tags.ToListAsync(), "Id", "Name");
+            var datas = await getAllDatas();
+            ViewBag.Datas = datas;
 
             if (!ModelState.IsValid) return View();
             var file = courseCreateVm.Photo;
@@ -117,10 +112,8 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
-            ViewBag.Categories = new SelectList(await _dbContext.Categories.ToListAsync(), "Id", "Name");
-            ViewBag.Teachers = new SelectList(await _dbContext.Teachers.ToListAsync(), "Id", "FullName");
-            ViewBag.language = new SelectList(await _dbContext.CourseLanguages.ToListAsync(), "Id", "Name");
-            ViewBag.tags = new SelectList(await _dbContext.Tags.Where(t => !t.CourseTags.Any(t => t.CourseId == id)).ToListAsync(), "Id", "Name");
+            var datas = await getAllDatas(id);
+            ViewBag.Datas = datas;
             if (id == null) return BadRequest();
 
             var course = await _dbContext.Courses
@@ -158,10 +151,8 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Update(int? id, CourseUpdateVm courseUpdateVm)
         {
-            ViewBag.Categories = new SelectList(await _dbContext.Categories.ToListAsync(), "Id", "Name");
-            ViewBag.Teachers = new SelectList(await _dbContext.Teachers.ToListAsync(), "Id", "FullName");
-            ViewBag.language = new SelectList(await _dbContext.CourseLanguages.ToListAsync(), "Id", "Name");
-            ViewBag.tags = new SelectList(await _dbContext.Tags.Where(t => !t.CourseTags.Any(t => t.CourseId == id)).ToListAsync(), "Id", "Name");
+            var datas = await getAllDatas(id);
+            ViewBag.Datas = datas;
             if (id == null) return BadRequest();
             var course = await _dbContext.Courses
                .Include(c => c.CourseLanguage)
@@ -242,6 +233,27 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
             return Ok();
         }
 
+        private async Task<GetAllDatasVm> getAllDatas(int? id = null)
+        {
+
+            var Categories = new SelectList(await _dbContext.Categories.ToListAsync(), "Id", "Name");
+            var Teachers = new SelectList(await _dbContext.Teachers.ToListAsync(), "Id", "FullName");
+            var languages = new SelectList(await _dbContext.CourseLanguages.ToListAsync(), "Id", "Name");
+            SelectList tags;
+            if (id != null)
+            {
+                tags = new SelectList(await _dbContext.Tags.Where(t => !t.CourseTags.Any(t => t.CourseId == id)).ToListAsync(), "Id", "Name");
+
+            }
+            else tags = new SelectList(await _dbContext.Tags.ToListAsync(), "Id", "Name");
+
+            var dataVm = new GetAllDatasVm();
+            dataVm.Categories = Categories;
+            dataVm.Teachers = Teachers;
+            dataVm.CourseLanguages = languages;
+            dataVm.Tags = tags;
+            return dataVm;
+        }
 
     }
 

@@ -50,42 +50,7 @@ $(function () {
         }
     });
 
-    //course search js end
-
-    //message contact start
-    //$(".send-message").on("click", function (event) {
-    //    event.preventDefault();
-
-    //    const messageText = $("#message-text").val();
-    //    const messageSubject = $("#message-subject").val();
-    //    const messageEmail = $("#message-email").val();
-    //    const messageName = $("#message-name").val();
-
-    //    $.ajax({
-    //        url: "/Contact/SendMessage",
-    //        method: "POST",
-    //        data: { Email: messageEmail, FullName: messageName, Subject: messageSubject, MessageText: messageText },
-    //        success: function (e) {
-    //            Swal.fire({
-    //                icon: "success",
-    //                title: "THANK YOU",
-    //                timer: 1500
-    //            });
-    //            $("#ContactMessages").append(e)
-    //        },
-    //        error: function (xhr) {
-    //            Swal.fire({
-    //                icon: "error",
-    //                title: "Oops...",
-    //                text: xhr.responseText
-    //            });
-    //        }
-    //    });
-    //});
-
-    //--------------------------------------------------------------
-
-
+   
     $(".send-message").on("click", function (event) {
         event.preventDefault();
 
@@ -144,6 +109,30 @@ $(function () {
             }
         });
     });
+
+    $(".remove-message").on("click", function () {
+        var btn = $(this);
+        var messageId = btn.attr("message-id");
+        $.ajax({
+            url: "/Contact/MessageChangeIsdelete",
+            method: "POST",
+            data: { id: messageId },
+            success: function () {
+                btn.parent().parent().remove();
+            },
+        });
+           
+    });
+    
+
+
+
+
+
+
+
+
+
 
 
 });

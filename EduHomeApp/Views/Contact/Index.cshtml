@@ -1,4 +1,7 @@
 ﻿@model Dictionary<string,string>
+@{
+   IEnumerable<Message> messages = ViewBag.Messages;
+}
 <!-- Banner Area Start -->
 <div class="banner-area-wrapper">
     <div class="banner-area text-center">
@@ -76,9 +79,27 @@
                         <a class="reply-btn send-message" data-text="send"><span>send message</span></a>
                         <p class="form-messege"></p>
                     </form>
-                    <div id="ContactMessages">
+                    <form method="post">
 
-                    </div>
+                        <div id="ContactMessages" style="background-color:#e5e1e1; padding:20px;">
+                            @foreach (var message in messages)
+                            {
+                                <span>
+                                    <b class="btn btn-success">@message.CreatedDate.ToString("HH:mm"):</b>
+                                    <b>@message.AppUser.FullName</b>
+                                    <div style="background-color:white; margin:10px; padding:10px; display:flex;
+                                      justify-content:space-between; width:600px; word-wrap: break-word;overflow: hidden;">
+                                        @message.MessageText
+                                        <i class="fa fa-times remove-message" style="color:red;" message-id="@message.Id"></i>
+                                    </div>
+
+                                </span>
+                            }
+
+                        </div>
+
+                    </form>
+                   
                 </div>
             </div>
         </div>

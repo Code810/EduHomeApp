@@ -53,7 +53,6 @@ namespace EduHomeApp.Areas.AdminArea.Controllers
             }
             Blog blog = new();
 
-
             if (!file.CheckContentType())
             {
                 ModelState.AddModelError("Photos", "Duzgun file secim edin");

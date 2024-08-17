@@ -1,0 +1,79 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\seidb\\OneDrive\\Masa\u00FCst\u00FC\\BackenProject\\EduHomeApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA4C958-5711-447A-855C-AD99A368C94B}|EduHomeApp\\EduHomeApp.csproj|c:\\users\\seidb\\onedrive\\masa\u00FCst\u00FC\\backenproject\\eduhomeapp\\eduhomeapp\\areas\\adminarea\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA4C958-5711-447A-855C-AD99A368C94B}|EduHomeApp\\EduHomeApp.csproj|solutionrelative:eduhomeapp\\areas\\adminarea\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA4C958-5711-447A-855C-AD99A368C94B}|EduHomeApp\\EduHomeApp.csproj|c:\\users\\seidb\\onedrive\\masa\u00FCst\u00FC\\backenproject\\eduhomeapp\\eduhomeapp\\areas\\adminarea\\views\\user\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ECA4C958-5711-447A-855C-AD99A368C94B}|EduHomeApp\\EduHomeApp.csproj|solutionrelative:eduhomeapp\\areas\\adminarea\\views\\user\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA4C958-5711-447A-855C-AD99A368C94B}|EduHomeApp\\EduHomeApp.csproj|c:\\users\\seidb\\onedrive\\masa\u00FCst\u00FC\\backenproject\\eduhomeapp\\eduhomeapp\\areas\\adminarea\\controllers\\aboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA4C958-5711-447A-855C-AD99A368C94B}|EduHomeApp\\EduHomeApp.csproj|solutionrelative:eduhomeapp\\areas\\adminarea\\controllers\\aboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Update.cshtml",
+              "DocumentMoniker": "C:\\Users\\seidb\\OneDrive\\Masa\u00FCst\u00FC\\BackenProject\\EduHomeApp\\EduHomeApp\\Areas\\AdminArea\\Views\\User\\Update.cshtml",
+              "RelativeDocumentMoniker": "EduHomeApp\\Areas\\AdminArea\\Views\\User\\Update.cshtml",
+              "ToolTip": "C:\\Users\\seidb\\OneDrive\\Masa\u00FCst\u00FC\\BackenProject\\EduHomeApp\\EduHomeApp\\Areas\\AdminArea\\Views\\User\\Update.cshtml",
+              "RelativeToolTip": "EduHomeApp\\Areas\\AdminArea\\Views\\User\\Update.cshtml",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAACYAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-17T13:51:11.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\seidb\\OneDrive\\Masa\u00FCst\u00FC\\BackenProject\\EduHomeApp\\EduHomeApp\\Areas\\AdminArea\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "EduHomeApp\\Areas\\AdminArea\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\seidb\\OneDrive\\Masa\u00FCst\u00FC\\BackenProject\\EduHomeApp\\EduHomeApp\\Areas\\AdminArea\\Controllers\\UserController.cs",
+              "RelativeToolTip": "EduHomeApp\\Areas\\AdminArea\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAswKgAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T13:50:55.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AboutController.cs",
+              "DocumentMoniker": "C:\\Users\\seidb\\OneDrive\\Masa\u00FCst\u00FC\\BackenProject\\EduHomeApp\\EduHomeApp\\Areas\\AdminArea\\Controllers\\AboutController.cs",
+              "RelativeDocumentMoniker": "EduHomeApp\\Areas\\AdminArea\\Controllers\\AboutController.cs",
+              "ToolTip": "C:\\Users\\seidb\\OneDrive\\Masa\u00FCst\u00FC\\BackenProject\\EduHomeApp\\EduHomeApp\\Areas\\AdminArea\\Controllers\\AboutController.cs",
+              "RelativeToolTip": "EduHomeApp\\Areas\\AdminArea\\Controllers\\AboutController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T13:35:48.551Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -10,6 +10,8 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EduHomeApp
 build_property.RootNamespace = EduHomeApp
 build_property.ProjectDir = C:\Users\seidb\OneDrive\Masaüstü\BackenProject\EduHomeApp\EduHomeApp\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
@@ -110,6 +112,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/seidb/OneDrive/Masaüstü/BackenProject/EduHomeApp/EduHomeApp/Areas/AdminArea/Views/HomeContent/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXEhvbWVDb250ZW50XFVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/seidb/OneDrive/Masaüstü/BackenProject/EduHomeApp/EduHomeApp/Areas/AdminArea/Views/Messages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXE1lc3NhZ2VzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/seidb/OneDrive/Masaüstü/BackenProject/EduHomeApp/EduHomeApp/Areas/AdminArea/Views/NoticeBoard/Create.cshtml]

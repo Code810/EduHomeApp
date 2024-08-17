@@ -4,6 +4,7 @@ using EduHomeApp.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EduHomeApp.Controllers
 {
@@ -18,7 +19,7 @@ namespace EduHomeApp.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> Index()
         {
             var settings = _context.Settings.ToDictionary(key => key.Key, value => value.Value);
             if (User.Identity.IsAuthenticated)
@@ -26,6 +27,7 @@ namespace EduHomeApp.Controllers
                 var user = await _userManager.FindByNameAsync(User.Identity.Name);
                 ViewBag.FullName = user.FullName;
                 ViewBag.Email = user.Email;
+                ViewBag.Messages = await _context.Messages.Include(u => u.AppUser).Where(m => m.AppUserId == user.Id && !m.IsDelete).OrderByDescending(m => m.CreatedDate).ToListAsync();
             }
             return View(settings);
         }
@@ -71,6 +73,16 @@ namespace EduHomeApp.Controllers
             }
         }
 
+        [HttpPost]
+        public async Task<IActionResult> MessageChangeIsdelete(int? id)
+        {
+            if (id == null) return BadRequest();
+            var existMessage = await _context.Messages.FirstOrDefaultAsync(m => m.Id == id);
+            if (existMessage == null) return NotFound();
+            existMessage.IsDelete = true;
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
 
     }
 }
